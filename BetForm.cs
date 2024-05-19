@@ -12,19 +12,17 @@ namespace RTIPPOGIT
 {
     public partial class BetForm : Form
     {
-        private Party thisGame;
         Player player;
         public int bet = 0;
-        public BetForm(Player player, Party thisGame)
+        public BetForm(Player player)
         {
             InitializeComponent();
             this.player = player;
-            this.thisGame = thisGame;
         }
 
         private void betButton_Click(object sender, EventArgs e)
         {
-            if ((chipsCount.Text.Trim().Length > 0) && (int.TryParse(chipsCount.Text, out int number) && (Convert.ToInt16(chipsCount.Text.Trim()) > 0)))
+            if ((chipsCount.Text.Trim().Length > 0) && (int.TryParse(chipsCount.Text, out int number) && (Convert.ToInt16(chipsCount.Text.Trim()) > 0))&&(Convert.ToInt16(chipsCount.Text.Trim()) <= 100))
             {
                 if (Convert.ToInt16(chipsCount.Text.Trim()) <= player.Chips)
                 {
@@ -45,6 +43,17 @@ namespace RTIPPOGIT
         {
             name.Text = player.Name;
             chips.Text = "Фишки: " + player.Chips.ToString();
+        }
+
+        private void BetForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult exitResult = MessageBox.Show(
+                "Вы уверены, что хотите закончить ввод ставки?",
+                "Подтвердите выход",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+            if (exitResult == DialogResult.No) e.Cancel = true;
         }
     }
 }

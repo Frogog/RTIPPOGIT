@@ -59,7 +59,7 @@
             this.textBox1.Size = new System.Drawing.Size(142, 22);
             this.textBox1.TabIndex = 6;
             // 
-            // InputRound
+            // InputRounds
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -67,8 +67,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Name = "InputRound";
-            this.Text = "InputRound";
+            this.Name = "InputRounds";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ввод раундов";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InputRounds_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

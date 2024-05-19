@@ -54,8 +54,9 @@ namespace RTIPPOGIT
             foreach (Player player in PlayersList)
             {
                 CurrentPlayer = player;
-                BetForm bet = new BetForm(player, this);
+                BetForm bet = new BetForm(player);
                 bet.ShowDialog();
+                if (bet.bet==0) Environment.Exit(0);
                 setChips(bet.bet);
             }
         }

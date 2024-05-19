@@ -61,7 +61,7 @@
             // 
             // diceImage3
             // 
-            this.diceImage3.Location = new System.Drawing.Point(160, 162);
+            this.diceImage3.Location = new System.Drawing.Point(179, 162);
             this.diceImage3.Name = "diceImage3";
             this.diceImage3.Size = new System.Drawing.Size(50, 50);
             this.diceImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -70,7 +70,7 @@
             // 
             // diceImage2
             // 
-            this.diceImage2.Location = new System.Drawing.Point(104, 162);
+            this.diceImage2.Location = new System.Drawing.Point(123, 162);
             this.diceImage2.Name = "diceImage2";
             this.diceImage2.Size = new System.Drawing.Size(50, 50);
             this.diceImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -79,7 +79,7 @@
             // 
             // diceImage1
             // 
-            this.diceImage1.Location = new System.Drawing.Point(48, 162);
+            this.diceImage1.Location = new System.Drawing.Point(67, 162);
             this.diceImage1.Name = "diceImage1";
             this.diceImage1.Size = new System.Drawing.Size(50, 50);
             this.diceImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -88,7 +88,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(135, 295);
+            this.button5.Location = new System.Drawing.Point(154, 295);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(104, 37);
             this.button5.TabIndex = 29;
@@ -99,7 +99,7 @@
             // limitedDice3
             // 
             this.limitedDice3.AutoSize = true;
-            this.limitedDice3.Location = new System.Drawing.Point(142, 224);
+            this.limitedDice3.Location = new System.Drawing.Point(161, 224);
             this.limitedDice3.Name = "limitedDice3";
             this.limitedDice3.Size = new System.Drawing.Size(14, 16);
             this.limitedDice3.TabIndex = 28;
@@ -108,7 +108,7 @@
             // limitedDice2
             // 
             this.limitedDice2.AutoSize = true;
-            this.limitedDice2.Location = new System.Drawing.Point(121, 224);
+            this.limitedDice2.Location = new System.Drawing.Point(140, 224);
             this.limitedDice2.Name = "limitedDice2";
             this.limitedDice2.Size = new System.Drawing.Size(14, 16);
             this.limitedDice2.TabIndex = 27;
@@ -117,7 +117,7 @@
             // limitedDice1
             // 
             this.limitedDice1.AutoSize = true;
-            this.limitedDice1.Location = new System.Drawing.Point(101, 224);
+            this.limitedDice1.Location = new System.Drawing.Point(120, 224);
             this.limitedDice1.Name = "limitedDice1";
             this.limitedDice1.Size = new System.Drawing.Size(14, 16);
             this.limitedDice1.TabIndex = 26;
@@ -162,7 +162,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(25, 252);
+            this.button1.Location = new System.Drawing.Point(44, 252);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(214, 37);
             this.button1.TabIndex = 19;
@@ -209,7 +209,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(25, 295);
+            this.button3.Location = new System.Drawing.Point(44, 295);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(104, 37);
             this.button3.TabIndex = 22;
@@ -229,7 +229,7 @@
             // scoreDiceImage1
             // 
             this.scoreDiceImage1.Image = global::RTIPPOGIT.Properties.Resources.Side_0;
-            this.scoreDiceImage1.Location = new System.Drawing.Point(48, 86);
+            this.scoreDiceImage1.Location = new System.Drawing.Point(67, 86);
             this.scoreDiceImage1.Name = "scoreDiceImage1";
             this.scoreDiceImage1.Size = new System.Drawing.Size(50, 50);
             this.scoreDiceImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -239,7 +239,7 @@
             // scoreLabel
             // 
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Location = new System.Drawing.Point(110, 55);
+            this.scoreLabel.Location = new System.Drawing.Point(129, 55);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(39, 16);
             this.scoreLabel.TabIndex = 34;
@@ -248,7 +248,7 @@
             // scoreDiceImage2
             // 
             this.scoreDiceImage2.Image = global::RTIPPOGIT.Properties.Resources.Side_0;
-            this.scoreDiceImage2.Location = new System.Drawing.Point(104, 86);
+            this.scoreDiceImage2.Location = new System.Drawing.Point(123, 86);
             this.scoreDiceImage2.Name = "scoreDiceImage2";
             this.scoreDiceImage2.Size = new System.Drawing.Size(50, 50);
             this.scoreDiceImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -258,7 +258,7 @@
             // scoreDiceImage3
             // 
             this.scoreDiceImage3.Image = global::RTIPPOGIT.Properties.Resources.Side_0;
-            this.scoreDiceImage3.Location = new System.Drawing.Point(160, 86);
+            this.scoreDiceImage3.Location = new System.Drawing.Point(179, 86);
             this.scoreDiceImage3.Name = "scoreDiceImage3";
             this.scoreDiceImage3.Size = new System.Drawing.Size(50, 50);
             this.scoreDiceImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -270,7 +270,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(291, 358);
+            this.ClientSize = new System.Drawing.Size(312, 358);
             this.Controls.Add(this.scoreDiceImage3);
             this.Controls.Add(this.scoreDiceImage2);
             this.Controls.Add(this.scoreLabel);

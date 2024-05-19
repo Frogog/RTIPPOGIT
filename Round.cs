@@ -11,7 +11,7 @@ namespace RTIPPOGIT
     public  class Round
     {
         public List<Player> WinnersList { get; private set; } = new List<Player>();
-        public bool Reroll { get; set; }
+        public bool Reroll { get; private set; }
         public Turn[] TurnsList { get; private set; }
 
         public Round(Player[] playersList)

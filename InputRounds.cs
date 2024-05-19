@@ -28,5 +28,16 @@ namespace RTIPPOGIT
             }
             else MessageBox.Show("Введите целое число больше нуля");
         }
+
+        private void InputRounds_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult exitResult = MessageBox.Show(
+                "Вы уверены, что хотите закончить ввод количества раундов?",
+                "Подтвердите выход",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+            if (exitResult == DialogResult.No) e.Cancel = true;
+        }
     }
 }

@@ -33,10 +33,11 @@ namespace RTIPPOGIT
             thisParty = new Party();
             InputPlayers inputPlayersForm = new InputPlayers(thisParty);
             inputPlayersForm.ShowDialog();
+            if (thisParty.PlayersList==null) Environment.Exit(0);
             InputRounds inputRoundsForm = new InputRounds(thisParty);
             inputRoundsForm.ShowDialog();
-
-            //thisParty.startBet();
+            if (thisParty.RoundsList == null) Environment.Exit(0);
+            thisParty.startBet();
             thisParty.StartGame();
             name.Text = thisParty.CurrentPlayer.Name;
             bank.Text = "Банк: " + thisParty.Bank.ToString();

@@ -58,11 +58,6 @@
             // chipsCount
             // 
             this.chipsCount.Location = new System.Drawing.Point(75, 28);
-            this.chipsCount.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
             this.chipsCount.Minimum = new decimal(new int[] {
             1,
             0,
@@ -99,14 +94,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(194, 111);
+            this.ClientSize = new System.Drawing.Size(184, 106);
             this.Controls.Add(this.chips);
             this.Controls.Add(this.betButton);
             this.Controls.Add(this.chipsCount);
             this.Controls.Add(this.chipsCountL);
             this.Controls.Add(this.name);
             this.Name = "BetForm";
-            this.Text = "BetForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ввод ставки";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BetForm_FormClosing);
             this.Load += new System.EventHandler(this.BetForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chipsCount)).EndInit();
             this.ResumeLayout(false);

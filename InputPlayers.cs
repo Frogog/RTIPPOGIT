@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace RTIPPOGIT
@@ -27,6 +28,17 @@ namespace RTIPPOGIT
                 this.Close();
             }
             else MessageBox.Show("Введите целое число больше единицы");
+        }
+
+        private void InputPlayers_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //DialogResult exitResult = MessageBox.Show(
+            //    "Вы уверены, что хотите закончить ввод количества игроков?",
+            //    "Подтвердите выход", 
+            //    MessageBoxButtons.YesNo, 
+            //    MessageBoxIcon.Question, 
+            //    MessageBoxDefaultButton.Button2);
+            //if (exitResult == DialogResult.No) e.Cancel = true;
         }
     }
 }

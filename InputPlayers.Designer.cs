@@ -63,12 +63,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(181, 118);
+            this.ClientSize = new System.Drawing.Size(172, 114);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "InputPlayers";
-            this.Text = "InputPlayers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ввод игроков";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InputPlayers_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
