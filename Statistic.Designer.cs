@@ -37,6 +37,7 @@
             // 
             // table
             // 
+            this.table.AllowUserToAddRows = false;
             this.table.AllowUserToDeleteRows = false;
             this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

@@ -37,7 +37,7 @@ namespace RTIPPOGIT
             InputRounds inputRoundsForm = new InputRounds(thisParty);
             inputRoundsForm.ShowDialog();
             if (thisParty.RoundsList == null) Environment.Exit(0);
-            thisParty.startBet();
+            //thisParty.startBet();
             thisParty.StartGame();
             name.Text = thisParty.CurrentPlayer.Name;
             bank.Text = "Банк: " + thisParty.Bank.ToString();
@@ -87,7 +87,7 @@ namespace RTIPPOGIT
                     if (answer == "Конец")
                     {
                         this.Hide();
-                        Statistic stat = new Statistic(thisParty);
+                        Statistic stat = new Statistic(thisParty,"Конец");
                         stat.ShowDialog();
                     }
                     name.Text = thisParty.CurrentPlayer.Name;
@@ -130,8 +130,7 @@ namespace RTIPPOGIT
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Statistic stat = new Statistic(thisParty);
-            stat.ShowDialog();
+            new Statistic(thisParty, "Промежуточная статистика").ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
