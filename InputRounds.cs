@@ -23,7 +23,6 @@ namespace RTIPPOGIT
         {
             if ((textBox1.Text.Trim().Length > 0) && (int.TryParse(textBox1.Text, out int number) && (Convert.ToInt16(textBox1.Text.Trim()) > 0)))
             {
-                //thisGame.roundsList = Round.InitializeArray(Convert.ToInt16(textBox1.Text.Trim()), thisGame.playersList);
                 thisGame.SetRounds(Convert.ToInt16(textBox1.Text.Trim()));
                 this.Close();
             }

@@ -23,22 +23,10 @@ namespace RTIPPOGIT
         public void throwDice(int diceAmount)
         {
             Turn currentTurn = CurrentRound.TurnsList.FirstOrDefault(i => i.Player.id == CurrentPlayer.id);
-            /*foreach (Turn turn in CurrentRound.TurnsList)
-            {
-                if (turn.Player.id == CurrentPlayer.id)
-                {
-                    currentTurn = turn;
-                    break;
-                }
-            }*/
-            //Turn currentTurn = changeCurrentTurn();
             int[] values;
             values = Dice.playDices(diceAmount);
             placeValues(values, currentTurn, CurrentPlayer);
         }
-        /*private Turn changeCurrentTurn() { 
-            return this.CurrentRound.TurnsList.FirstOrDefault(i => i.Player.id == CurrentPlayer.id);
-        }*/
         private void placeValues(int[] values, Turn turn, Player player)
         {
             switch (values.Length)
@@ -78,13 +66,12 @@ namespace RTIPPOGIT
         }
         public void SetPlayers(int amountPlayers)
         {
-            PlayersList = Player.InitializeArray(amountPlayers);
-            /*for (int i = 0; i < amountPlayers; ++i)
+            PlayersList = new Player[amountPlayers];
+            for (int i = 0; i < PlayersList.Length; ++i)
             {
                 PlayersList[i] = new Player();
-                PlayersList[i].Name += $" {i + 1}";
-                PlayersList[i].id = i;
-            }*/
+                PlayersList[i].SetPlayerInfo(i);
+            }
         }
         public void SetRounds(int amountRounds)
         {
@@ -93,14 +80,10 @@ namespace RTIPPOGIT
             {
                 RoundsList[i] = new Round(PlayersList);
             }
-            //roundsList = Round.InitializeArray(Convert.ToInt16(amountRounds), playersList);
         }
         public string ChangePlayer()
         {
             string answer = "";
-            /*if ((Array.IndexOf(PlayersList, CurrentPlayer) == PlayersList.Length - 1) && (Array.IndexOf(RoundsList, CurrentRound) == RoundsList.Length - 1)) { 
-                answer=endGame();
-            }*/
             if (Array.IndexOf(PlayersList, CurrentPlayer) == PlayersList.Length - 1) answer = ChangeRound();
             nextPlayer();
             return answer;
@@ -116,48 +99,32 @@ namespace RTIPPOGIT
             {
                 ChangePlayer();
             }
-            //MessageBox.Show(currentPlayer.ToString());
         }
         private string ChangeRound()
         {
             CurrentRound.UpdateWinners();
-            string str;
-            if (CurrentRound.WinnersList.Count > 1)
-            {
-                str = "Победители Раунда: \n";
-                foreach (var player in CurrentRound.WinnersList) str += player.Name + " ";
-            }
-            else
-            {
-                str = "Победитель Раунда: \n" + CurrentRound.WinnersList[0].Name;
-            }
-            /*string str = "Победители Раунда: \n";
-            foreach(var player in CurrentRound.WinnersList) str+= player.Name+" ";*/
-            MessageBox.Show(str);
+            string roundWinMes = CurrentRound.CreateRoundWinMes();
+            MessageBox.Show(roundWinMes);
             if (!CurrentRound.MoreWinners())
             {
                 if (Array.IndexOf(RoundsList, CurrentRound) + 1 >= RoundsList.Length)
                 {
-                    //CurrentRound = RoundsList[0];
                     CurrentRound.WinnersList.Clear();
                     int max = PlayersList.Max(i => i.Score);
                     foreach (Player player in PlayersList)
                     {
                         if (player.Score == max) CurrentRound.WinnersList.Add(player);
                     }
+                    string gameWinMes = CurrentRound.CreateGameWinMes();
                     if (CurrentRound.WinnersList.Count > 1)
                     {
-                        string str2 = "Победители игры: ";
-                        foreach (Player player in CurrentRound.WinnersList) str2 += "\n" + player.Name;
-                        str2 += "\nПоследний раунд будет переигран для определения окончательного победителя";
-                        MessageBox.Show(str2);
-                        CurrentRound.Reroll = true;
+                        MessageBox.Show(gameWinMes);
                         return "Бонусный раунд";
                     }
                     else
                     {
-                        string str2 = "Победитель игры: " + CurrentRound.WinnersList[0].Name + "\n" + Bank.ToString();
-                        MessageBox.Show(str2);
+                        gameWinMes += "\nБанк: " + Bank.ToString();
+                        MessageBox.Show(gameWinMes);
                         CurrentRound.WinnersList[0].Chips += Bank;
                         return "Конец";
                     }
@@ -168,16 +135,7 @@ namespace RTIPPOGIT
                 }
             }
             return "";
-            //return "Раунд: " + (Array.IndexOf(roundsList, currentRound) + 1);
         }
-        public string ShowScore()
-        {
-            string str = "";
-            foreach (Player player in PlayersList)
-            {
-                str += player.Name + " " + player.Score + "\n";
-            }
-            return str;
-        }
+        
     }
 }

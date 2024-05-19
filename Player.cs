@@ -20,17 +20,10 @@ namespace RTIPPOGIT
         {
             Score++;
         }
-        public static Player[] InitializeArray(int length)
+        public void SetPlayerInfo(int id)
         {
-            Player[] array = new Player[length];
-            for (int i = 0; i < length; ++i)
-            {
-                array[i] = new Player();
-                array[i].Name = $"Игрок: {i + 1}";
-                array[i].id = i;
-                //MessageBox.Show(array[i].ToString());
-            }
-            return array;
+            Name = $"Игрок: {id + 1}";
+            this.id = id;
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using System.Windows.Forms;
 
 namespace RTIPPOGIT
 {
@@ -31,32 +33,48 @@ namespace RTIPPOGIT
         {
             if (!Reroll)
             {
-                int max = TurnsList.Max(i => i.GetScore());
-                foreach (Turn turn in TurnsList) if (turn.GetScore() == max) WinnersList.Add(turn.Player);
+                int max = TurnsList.Max(i => i.GetScoreMax());
+                foreach (Turn turn in TurnsList) if (turn.GetScoreMax() == max) WinnersList.Add(turn.Player);
             }
             else
             {
-                int max = TurnsList.Where(i => WinnersList.Contains(i.Player)).Max(i => i.GetScore());
-                foreach (Turn turn in TurnsList) if (turn.GetScore() != max) WinnersList.Remove(turn.Player);
+                int max = TurnsList.Where(i => WinnersList.Contains(i.Player)).Max(i => i.GetScoreMax());
+                foreach (Turn turn in TurnsList) if (turn.GetScoreMax() != max) WinnersList.Remove(turn.Player);
             }
             Reroll = WinnersList.Count > 1;
             if (WinnersList.Count == 1) WinnersList[0].UpScore();
         }
-        /*public static Round[] InitializeArray(int length, Player[] playersList)
-        {
-            Round[] array = new Round[length];
-            for (int i = 0; i < length; ++i)
+        public string CreateRoundWinMes() {
+            string roundWinMes = "";
+            if (WinnersList.Count > 1)
             {
-                array[i] = new Round(playersList);
+                roundWinMes = "Победители Раунда: \n";
+                foreach (var player in WinnersList) roundWinMes += player.Name + " ";
             }
-            return array;
+            else roundWinMes = "Победитель Раунда: \n" + WinnersList[0].Name;
+            return roundWinMes;
         }
-        public string ShowTurns() {
-            string turnStr = "";
-            foreach (Turn turn in TurnsList) { 
-                turnStr+= "" + turn.ToString();
+        public string CreateGameWinMes()
+        {
+            string gameWinMes = "";
+            if (WinnersList.Count > 1)
+            {
+                gameWinMes = "Победители игры: ";
+                foreach (Player player in WinnersList) gameWinMes += "\n" + player.Name;
+                gameWinMes += "\nПоследний раунд будет переигран для определения окончательного победителя";
+                Reroll = true;
             }
-            return turnStr;
-        }*/
+            else gameWinMes = "Победитель игры: " + WinnersList[0].Name;
+            return gameWinMes;
+        }
+        public string ShowScore()
+        {
+            string playersScore = "";
+            foreach (Turn turn in TurnsList)
+            {
+                playersScore += turn.Player.Name + " Кости: " + turn.Player.Score + " Счет:  " + turn.GetScoreMax() + "\n";
+            }
+            return playersScore;
+        }
     }
 }

@@ -9,7 +9,6 @@ namespace RTIPPOGIT
     public class Dice
     {
         private int[] EdgeValues = new int[6] { 1, 2, 3, 4, 5, 6 };
-        //private Random rnd = new Random();
         public int[] playDices(int diceAmount)
         {
             int[] rollValues = new int[diceAmount];

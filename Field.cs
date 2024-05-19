@@ -12,10 +12,8 @@ namespace RTIPPOGIT
 {
     public partial class Field : Form
     {
-        public Party thisParty;
-        private int[] rolls = new int[6];
+        private Party thisParty;
         private int diceToThrow = 3;
-        private Random rnd = new Random();
         public Field()
         {
             InitializeComponent();
@@ -33,20 +31,13 @@ namespace RTIPPOGIT
         private void Field_Load(object sender, EventArgs e)
         {
             thisParty = new Party();
-            InputPlayers inputP = new InputPlayers(thisParty);
-            inputP.ShowDialog();
-            InputRounds inputR = new InputRounds(thisParty);
-            inputR.ShowDialog();
-            //foreach (Player player in thisGame.players)
-            //{
-            //    BetForm bet = new BetForm(player, thisGame);                //Ставки
-            //    bet.ShowDialog();
-            //}
+            InputPlayers inputPlayersForm = new InputPlayers(thisParty);
+            inputPlayersForm.ShowDialog();
+            InputRounds inputRoundsForm = new InputRounds(thisParty);
+            inputRoundsForm.ShowDialog();
 
-            thisParty.startBet();
+            //thisParty.startBet();
             thisParty.StartGame();
-            /*thisGame.currentPlayer = thisGame.playersList[0];
-            thisGame.currentRound = thisGame.roundsList[0];*/
             name.Text = thisParty.CurrentPlayer.Name;
             bank.Text = "Банк: " + thisParty.Bank.ToString();
         }
@@ -66,6 +57,7 @@ namespace RTIPPOGIT
                     diceImage3.Image = diceSides[currentTurn.RollValues[2]];
                     int max = Math.Max(Math.Max(currentTurn.RollValues[0], currentTurn.RollValues[1]), currentTurn.RollValues[2]);
                     dice1.Text = max.ToString();
+                    scoreDiceImage1.Image = diceSides[max];
                     break;
                 case 2:
                     limitedDice1.Text = currentTurn.RollValues[3].ToString();
@@ -76,6 +68,7 @@ namespace RTIPPOGIT
                     diceImage3.Visible = false;
                     max = Math.Max(currentTurn.RollValues[3], currentTurn.RollValues[4]);
                     dice2.Text = max.ToString();
+                    scoreDiceImage2.Image = diceSides[max];
                     break;
                 case 1:
                     limitedDice1.Text = currentTurn.RollValues[5].ToString();
@@ -84,6 +77,7 @@ namespace RTIPPOGIT
                     diceImage2.Visible = false;
                     dice3.Text = currentTurn.RollValues[5].ToString();
                     button1.Text = "Передать ход";
+                    scoreDiceImage3.Image = diceSides[currentTurn.RollValues[5]];
                     break;
                 case 0:
                     string answer = thisParty.ChangePlayer();
@@ -93,17 +87,17 @@ namespace RTIPPOGIT
                     {
                         this.Hide();
                         Statistic stat = new Statistic(thisParty);
-                        //stat.Closed += (s, args) => this.Close();
                         stat.ShowDialog();
                     }
-                    //thisParty.ChangePlayer();
                     name.Text = thisParty.CurrentPlayer.Name;
-                    //round.Text = "Раунд: "+(Array.IndexOf(thisParty.RoundsList, thisParty.CurrentRound)+1).ToString();
                     button1.Text = "Разыграть";
                     diceToThrow = 4;
                     dice1.Text = "0";
                     dice2.Text = "0";
                     dice3.Text = "0";
+                    scoreDiceImage1.Image = diceSides[0];
+                    scoreDiceImage2.Image = diceSides[0];
+                    scoreDiceImage3.Image = diceSides[0];
                     limitedDice1.Text = "0";
                     limitedDice2.Text = "0";
                     limitedDice3.Text = "0";
@@ -137,6 +131,11 @@ namespace RTIPPOGIT
         {
             Statistic stat = new Statistic(thisParty);
             stat.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
