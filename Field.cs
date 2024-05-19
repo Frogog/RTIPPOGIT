@@ -20,15 +20,15 @@ namespace RTIPPOGIT
         {
             InitializeComponent();
         }
-        private Dictionary<int, string> diceSides = new Dictionary<int, string>()
+        private Dictionary<int, Bitmap> diceSides = new Dictionary<int, Bitmap>()
         {
-            [0] = "Side_0.png",
-            [1] = "Side_1.png",
-            [2] = "Side_2.png",
-            [3] = "Side_3.png",
-            [4] = "Side_4.png",
-            [5] = "Side_5.png",
-            [6] = "Side_6.png"
+            [0] = Properties.Resources.Side_0,
+            [1] = Properties.Resources.Side_1,
+            [2] = Properties.Resources.Side_2,
+            [3] = Properties.Resources.Side_3,
+            [4] = Properties.Resources.Side_4,
+            [5] = Properties.Resources.Side_5,
+            [6] = Properties.Resources.Side_6,
         };
         private void Field_Load(object sender, EventArgs e)
         {
@@ -61,17 +61,17 @@ namespace RTIPPOGIT
                     limitedDice1.Text = currentTurn.RollValues[0].ToString();
                     limitedDice2.Text = currentTurn.RollValues[1].ToString();
                     limitedDice3.Text = currentTurn.RollValues[2].ToString();
-                    diceImage1.Image = Image.FromFile("../" + diceSides[currentTurn.RollValues[0]]);
-                    diceImage2.Image = Image.FromFile("../" + diceSides[currentTurn.RollValues[1]]);
-                    diceImage3.Image = Image.FromFile("../" + diceSides[currentTurn.RollValues[2]]);
+                    diceImage1.Image = diceSides[currentTurn.RollValues[0]];
+                    diceImage2.Image = diceSides[currentTurn.RollValues[1]];
+                    diceImage3.Image = diceSides[currentTurn.RollValues[2]];
                     int max = Math.Max(Math.Max(currentTurn.RollValues[0], currentTurn.RollValues[1]), currentTurn.RollValues[2]);
                     dice1.Text = max.ToString();
                     break;
                 case 2:
                     limitedDice1.Text = currentTurn.RollValues[3].ToString();
                     limitedDice2.Text = currentTurn.RollValues[4].ToString();
-                    diceImage1.Image = Image.FromFile("../" + diceSides[currentTurn.RollValues[3]]);
-                    diceImage2.Image = Image.FromFile("../" + diceSides[currentTurn.RollValues[4]]);
+                    diceImage1.Image = diceSides[currentTurn.RollValues[3]];
+                    diceImage2.Image = diceSides[currentTurn.RollValues[4]];
                     limitedDice3.Visible = false;
                     diceImage3.Visible = false;
                     max = Math.Max(currentTurn.RollValues[3], currentTurn.RollValues[4]);
@@ -79,7 +79,7 @@ namespace RTIPPOGIT
                     break;
                 case 1:
                     limitedDice1.Text = currentTurn.RollValues[5].ToString();
-                    diceImage1.Image = Image.FromFile("../" + diceSides[currentTurn.RollValues[5]]);
+                    diceImage1.Image = diceSides[currentTurn.RollValues[5]];
                     limitedDice2.Visible = false;
                     diceImage2.Visible = false;
                     dice3.Text = currentTurn.RollValues[5].ToString();
@@ -107,9 +107,9 @@ namespace RTIPPOGIT
                     limitedDice1.Text = "0";
                     limitedDice2.Text = "0";
                     limitedDice3.Text = "0";
-                    diceImage1.Image = Image.FromFile("../" + diceSides[0]);
-                    diceImage2.Image = Image.FromFile("../" + diceSides[0]);
-                    diceImage3.Image = Image.FromFile("../" + diceSides[0]);
+                    diceImage1.Image = diceSides[0];
+                    diceImage2.Image = diceSides[0];
+                    diceImage3.Image = diceSides[0];
                     limitedDice2.Visible = true;
                     limitedDice3.Visible = true;
                     diceImage2.Visible = true;
