@@ -27,8 +27,8 @@ namespace RTIPPOGIT
             {
                 if ((endStat == "Конец") && 
                     (thisParty.RoundsList[thisParty.RoundsList.Length-1].WinnersList.Contains(player))) 
-                table.Rows.Add(player.Name, player.Score, (player.Chips-thisParty.Bank-100)*-1);
-                else table.Rows.Add(player.Name, player.Score, 100-player.Chips);
+                table.Rows.Add(player.Name, player.Score, (player.Chips-thisParty.Bank-100)*-1,player.Chips);
+                else table.Rows.Add(player.Name, player.Score, 100-player.Chips,player.Chips);
             }
         }
     }

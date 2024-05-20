@@ -86,14 +86,15 @@
             this.name.AutoSize = true;
             this.name.Location = new System.Drawing.Point(12, 9);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(17, 16);
+            this.name.Size = new System.Drawing.Size(33, 16);
             this.name.TabIndex = 6;
-            this.name.Text = "И";
+            this.name.Text = "Имя";
             // 
             // BetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(184, 106);
             this.Controls.Add(this.chips);
             this.Controls.Add(this.betButton);

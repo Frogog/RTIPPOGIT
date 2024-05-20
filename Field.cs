@@ -31,13 +31,13 @@ namespace RTIPPOGIT
         private void Field_Load(object sender, EventArgs e)
         {
             thisParty = new Party();
-            InputPlayers inputPlayersForm = new InputPlayers(thisParty);
-            inputPlayersForm.ShowDialog();
-            if (thisParty.PlayersList==null) Environment.Exit(0);
-            InputRounds inputRoundsForm = new InputRounds(thisParty);
-            inputRoundsForm.ShowDialog();
-            if (thisParty.RoundsList == null) Environment.Exit(0);
-            //thisParty.startBet();
+            InputSettings inputSettingsForm = new InputSettings(thisParty);
+            inputSettingsForm.ShowDialog();
+            if ((thisParty.PlayersList == null) || (thisParty.RoundsList == null)) {
+                MessageBox.Show("Настройка игры не завершена\nБудет произведен выход из игры","Выход из игры");
+                Environment.Exit(0);
+            } 
+            thisParty.startBet();
             thisParty.StartGame();
             name.Text = thisParty.CurrentPlayer.Name;
             bank.Text = "Банк: " + thisParty.Bank.ToString();
@@ -133,9 +133,15 @@ namespace RTIPPOGIT
             new Statistic(thisParty, "Промежуточная статистика").ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Field_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            DialogResult exitResult = MessageBox.Show(
+                "Вы уверены, что хотите выйти из игры?",
+                "Подтвердите выход",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+            if (exitResult == DialogResult.No) e.Cancel = true;
         }
     }
 }

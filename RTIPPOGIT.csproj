@@ -59,17 +59,11 @@
     <Compile Include="Field.Designer.cs">
       <DependentUpon>Field.cs</DependentUpon>
     </Compile>
-    <Compile Include="InputPlayers.cs">
+    <Compile Include="InputSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputPlayers.Designer.cs">
-      <DependentUpon>InputPlayers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InputRounds.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InputRounds.Designer.cs">
-      <DependentUpon>InputRounds.cs</DependentUpon>
+    <Compile Include="InputSettings.Designer.cs">
+      <DependentUpon>InputSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Party.cs" />
     <Compile Include="Player.cs" />
@@ -89,11 +83,8 @@
     <EmbeddedResource Include="Field.resx">
       <DependentUpon>Field.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InputPlayers.resx">
-      <DependentUpon>InputPlayers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InputRounds.resx">
-      <DependentUpon>InputRounds.cs</DependentUpon>
+    <EmbeddedResource Include="InputSettings.resx">
+      <DependentUpon>InputSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

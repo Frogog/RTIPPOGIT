@@ -35,7 +35,6 @@
             this.limitedDice3 = new System.Windows.Forms.Label();
             this.limitedDice2 = new System.Windows.Forms.Label();
             this.limitedDice1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.bank = new System.Windows.Forms.Label();
             this.round = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
@@ -45,7 +44,6 @@
             this.dice3 = new System.Windows.Forms.Label();
             this.dice2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.scoreDiceImage1 = new System.Windows.Forms.PictureBox();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.scoreDiceImage2 = new System.Windows.Forms.PictureBox();
@@ -123,16 +121,6 @@
             this.limitedDice1.TabIndex = 26;
             this.limitedDice1.Text = "0";
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(506, 117);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 23);
-            this.button4.TabIndex = 25;
-            this.button4.Text = "Счет";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // bank
             // 
             this.bank.AutoSize = true;
@@ -175,7 +163,7 @@
             this.panel1.Controls.Add(this.dice1);
             this.panel1.Controls.Add(this.dice3);
             this.panel1.Controls.Add(this.dice2);
-            this.panel1.Location = new System.Drawing.Point(422, 261);
+            this.panel1.Location = new System.Drawing.Point(397, 98);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(106, 38);
             this.panel1.TabIndex = 18;
@@ -192,7 +180,7 @@
             // dice3
             // 
             this.dice3.AutoSize = true;
-            this.dice3.Location = new System.Drawing.Point(75, 10);
+            this.dice3.Location = new System.Drawing.Point(70, 10);
             this.dice3.Name = "dice3";
             this.dice3.Size = new System.Drawing.Size(14, 16);
             this.dice3.TabIndex = 2;
@@ -216,15 +204,6 @@
             this.button3.Text = "Счет раунда";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(506, 146);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 23);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Смена";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // scoreDiceImage1
             // 
@@ -270,7 +249,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(312, 358);
+            this.ClientSize = new System.Drawing.Size(293, 358);
             this.Controls.Add(this.scoreDiceImage3);
             this.Controls.Add(this.scoreDiceImage2);
             this.Controls.Add(this.scoreLabel);
@@ -282,16 +261,16 @@
             this.Controls.Add(this.limitedDice3);
             this.Controls.Add(this.limitedDice2);
             this.Controls.Add(this.limitedDice1);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.bank);
             this.Controls.Add(this.round);
             this.Controls.Add(this.name);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Name = "Field";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Игровая доска";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Field_FormClosing);
             this.Load += new System.EventHandler(this.Field_Load);
             ((System.ComponentModel.ISupportInitialize)(this.diceImage3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage2)).EndInit();
@@ -315,7 +294,6 @@
         private System.Windows.Forms.Label limitedDice3;
         private System.Windows.Forms.Label limitedDice2;
         private System.Windows.Forms.Label limitedDice1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label bank;
         private System.Windows.Forms.Label round;
         private System.Windows.Forms.Label name;
@@ -325,7 +303,6 @@
         private System.Windows.Forms.Label dice3;
         private System.Windows.Forms.Label dice2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox scoreDiceImage1;
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.PictureBox scoreDiceImage2;
