@@ -116,15 +116,16 @@ namespace RTIPPOGIT
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string str = "Кости игроков ";
-            foreach (Turn turn in thisParty.CurrentRound.TurnsList)
-            {
-                str += "\n" + turn.Player.Name + " ";
-                foreach (int value in turn.RollValues)
-                {
-                    str += value + " ";
-                }
-            }
+            string str = "Кости игроков\n";
+            str += thisParty.CurrentRound.ShowScore();
+            //foreach (Turn turn in thisParty.CurrentRound.TurnsList)
+            //{
+            //    str += "\n" + turn.Player.Name + " ";
+            //    foreach (int value in turn.RollValues)
+            //    {
+            //        str += value + " ";
+            //    }
+            //}
             MessageBox.Show(str);
         }
 
@@ -135,13 +136,13 @@ namespace RTIPPOGIT
 
         private void Field_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult exitResult = MessageBox.Show(
-                "Вы уверены, что хотите выйти из игры?",
-                "Подтвердите выход",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2);
-            if (exitResult == DialogResult.No) e.Cancel = true;
+            //DialogResult exitResult = MessageBox.Show(
+            //    "Вы уверены, что хотите выйти из игры?",
+            //    "Подтвердите выход",
+            //    MessageBoxButtons.YesNo,
+            //    MessageBoxIcon.Question,
+            //    MessageBoxDefaultButton.Button2);
+            //if (exitResult == DialogResult.No) e.Cancel = true;
         }
     }
 }

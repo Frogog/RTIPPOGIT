@@ -80,7 +80,7 @@
             // 
             // сhips
             // 
-            this.сhips.HeaderText = "Фишки";
+            this.сhips.HeaderText = "Баланс";
             this.сhips.MinimumWidth = 6;
             this.сhips.Name = "сhips";
             this.сhips.ReadOnly = true;

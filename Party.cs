@@ -51,19 +51,26 @@ namespace RTIPPOGIT
         }
         public void startBet()
         {
-            foreach (Player player in PlayersList)
-            {
-                CurrentPlayer = player;
-                BetForm bet = new BetForm(player);
-                bet.ShowDialog();
-                if (bet.bet==0) Environment.Exit(0);
-                setChips(bet.bet);
+            BetForm bet = new BetForm(this);
+            bet.ShowDialog();
+            if (bet.bet[PlayersList.Length - 1] == 0) Environment.Exit(0);
+            for (int i = 0; i < PlayersList.Length; i++) {
+                CurrentPlayer = PlayersList[i];
+                setChips(bet.bet[i]);
             }
+            //foreach (Player player in PlayersList)
+            //{
+            //    CurrentPlayer = player;
+            //    BetForm bet = new BetForm(player);
+            //    bet.ShowDialog();
+            //    if (bet.bet==0) Environment.Exit(0);
+            //    setChips(bet.bet);
+            //}
         }
         private void setChips(int chipsCount)
         {
             Bank += chipsCount;
-            CurrentPlayer.Chips -= chipsCount;
+            CurrentPlayer.changeChips((chipsCount)*-1);
         }
         public void SetPlayers(int amountPlayers)
         {
@@ -106,6 +113,7 @@ namespace RTIPPOGIT
             CurrentRound.UpdateWinners();
             string roundWinMes = CurrentRound.CreateRoundWinMes();
             MessageBox.Show(roundWinMes);
+
             if (!CurrentRound.MoreWinners())
             {
                 if (Array.IndexOf(RoundsList, CurrentRound) + 1 >= RoundsList.Length)
@@ -116,7 +124,9 @@ namespace RTIPPOGIT
                     {
                         if (player.Score == max) CurrentRound.WinnersList.Add(player);
                     }
+
                     string gameWinMes = CurrentRound.CreateGameWinMes();
+
                     if (CurrentRound.WinnersList.Count > 1)
                     {
                         MessageBox.Show(gameWinMes);
@@ -126,7 +136,7 @@ namespace RTIPPOGIT
                     {
                         gameWinMes += "\nБанк: " + Bank.ToString();
                         MessageBox.Show(gameWinMes);
-                        CurrentRound.WinnersList[0].Chips += Bank;
+                        CurrentRound.WinnersList[0].changeChips(Bank);
                         return "Конец";
                     }
                 }

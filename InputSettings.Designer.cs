@@ -30,9 +30,7 @@
         {
             this.confirmB = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.playerAmount2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.roundAmount2 = new System.Windows.Forms.TextBox();
             this.playerAmount = new System.Windows.Forms.NumericUpDown();
             this.roundAmount = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.playerAmount)).BeginInit();
@@ -58,13 +56,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Количество игроков";
             // 
-            // playerAmount2
-            // 
-            this.playerAmount2.Location = new System.Drawing.Point(11, 106);
-            this.playerAmount2.Name = "playerAmount2";
-            this.playerAmount2.Size = new System.Drawing.Size(142, 22);
-            this.playerAmount2.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -73,13 +64,6 @@
             this.label2.Size = new System.Drawing.Size(144, 16);
             this.label2.TabIndex = 7;
             this.label2.Text = "Количество раундов";
-            // 
-            // roundAmount2
-            // 
-            this.roundAmount2.Location = new System.Drawing.Point(158, 106);
-            this.roundAmount2.Name = "roundAmount2";
-            this.roundAmount2.Size = new System.Drawing.Size(142, 22);
-            this.roundAmount2.TabIndex = 6;
             // 
             // playerAmount
             // 
@@ -90,7 +74,7 @@
             0,
             0});
             this.playerAmount.Name = "playerAmount";
-            this.playerAmount.Size = new System.Drawing.Size(120, 22);
+            this.playerAmount.Size = new System.Drawing.Size(138, 22);
             this.playerAmount.TabIndex = 8;
             this.playerAmount.Value = new decimal(new int[] {
             2,
@@ -107,7 +91,7 @@
             0,
             0});
             this.roundAmount.Name = "roundAmount";
-            this.roundAmount.Size = new System.Drawing.Size(120, 22);
+            this.roundAmount.Size = new System.Drawing.Size(138, 22);
             this.roundAmount.TabIndex = 9;
             this.roundAmount.Value = new decimal(new int[] {
             1,
@@ -120,14 +104,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(322, 197);
+            this.ClientSize = new System.Drawing.Size(315, 129);
             this.Controls.Add(this.roundAmount);
             this.Controls.Add(this.playerAmount);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.roundAmount2);
             this.Controls.Add(this.confirmB);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.playerAmount2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "InputSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -144,9 +126,7 @@
 
         private System.Windows.Forms.Button confirmB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox playerAmount2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox roundAmount2;
         private System.Windows.Forms.NumericUpDown playerAmount;
         private System.Windows.Forms.NumericUpDown roundAmount;
     }

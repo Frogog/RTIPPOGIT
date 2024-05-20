@@ -11,7 +11,7 @@ namespace RTIPPOGIT
     public  class Round
     {
         public List<Player> WinnersList { get; private set; } = new List<Player>();
-        public bool Reroll { get; private set; }
+        public bool Reroll { get; private set; } = false;
         public Turn[] TurnsList { get; private set; }
 
         public Round(Player[] playersList)
@@ -21,8 +21,9 @@ namespace RTIPPOGIT
             {
                 TurnsList[i] = new Turn(playersList[i]);
             }
-            this.Reroll = false;
-            WinnersList.Select(i => i.Name == "Имя");
+            //this.Reroll = false;
+
+            //WinnersList.Select(i => i.Name == "Имя");
         }
         public bool MoreWinners()
         {
@@ -72,7 +73,7 @@ namespace RTIPPOGIT
             string playersScore = "";
             foreach (Turn turn in TurnsList)
             {
-                playersScore += turn.Player.Name + " Кости: " + turn.Player.Score + " Счет:  " + turn.GetScoreMax() + "\n";
+                playersScore += turn.Player.Name + " Кости: " + turn.GetScoreMax() + " Счет:  " + turn.Player.Score + "\n";
             }
             return playersScore;
         }

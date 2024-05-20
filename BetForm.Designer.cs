@@ -39,7 +39,7 @@
             // chips
             // 
             this.chips.AutoSize = true;
-            this.chips.Location = new System.Drawing.Point(72, 9);
+            this.chips.Location = new System.Drawing.Point(130, 12);
             this.chips.Name = "chips";
             this.chips.Size = new System.Drawing.Size(53, 16);
             this.chips.TabIndex = 10;
@@ -47,9 +47,9 @@
             // 
             // betButton
             // 
-            this.betButton.Location = new System.Drawing.Point(29, 56);
+            this.betButton.Location = new System.Drawing.Point(73, 59);
             this.betButton.Name = "betButton";
-            this.betButton.Size = new System.Drawing.Size(105, 23);
+            this.betButton.Size = new System.Drawing.Size(138, 35);
             this.betButton.TabIndex = 9;
             this.betButton.Text = "Поставить";
             this.betButton.UseVisualStyleBackColor = true;
@@ -57,7 +57,7 @@
             // 
             // chipsCount
             // 
-            this.chipsCount.Location = new System.Drawing.Point(75, 28);
+            this.chipsCount.Location = new System.Drawing.Point(133, 31);
             this.chipsCount.Minimum = new decimal(new int[] {
             1,
             0,
@@ -75,7 +75,7 @@
             // chipsCountL
             // 
             this.chipsCountL.AutoSize = true;
-            this.chipsCountL.Location = new System.Drawing.Point(12, 30);
+            this.chipsCountL.Location = new System.Drawing.Point(70, 33);
             this.chipsCountL.Name = "chipsCountL";
             this.chipsCountL.Size = new System.Drawing.Size(57, 16);
             this.chipsCountL.TabIndex = 7;
@@ -84,7 +84,7 @@
             // name
             // 
             this.name.AutoSize = true;
-            this.name.Location = new System.Drawing.Point(12, 9);
+            this.name.Location = new System.Drawing.Point(70, 12);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(33, 16);
             this.name.TabIndex = 6;
@@ -95,7 +95,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(184, 106);
+            this.ClientSize = new System.Drawing.Size(296, 106);
             this.Controls.Add(this.chips);
             this.Controls.Add(this.betButton);
             this.Controls.Add(this.chipsCount);

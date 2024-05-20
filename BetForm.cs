@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,28 +13,32 @@ namespace RTIPPOGIT
 {
     public partial class BetForm : Form
     {
-        Player player;
-        public int bet = 0;
-        public BetForm(Player player)
+        Party thisParty;
+        public int[] bet;
+        private int playerID = 0;
+        public BetForm(Party thisParty)
         {
             InitializeComponent();
-            this.player = player;
+            this.thisParty = thisParty;
+            this.bet = new int[thisParty.PlayersList.Length];
         }
 
         private void betButton_Click(object sender, EventArgs e)
         {
-            if ((chipsCount.Text.Trim().Length > 0) && (int.TryParse(chipsCount.Text, out int number) && (Convert.ToInt16(chipsCount.Text.Trim()) > 0))&&(Convert.ToInt16(chipsCount.Text.Trim()) <= 100))
+            if ((chipsCount.Text.Trim().Length > 0) && (int.TryParse(chipsCount.Text, out int number) && (Convert.ToInt16(chipsCount.Text.Trim()) > 0)))
             {
-                if (Convert.ToInt16(chipsCount.Text.Trim()) <= player.Chips)
+                if (Convert.ToInt16(chipsCount.Text.Trim()) <= thisParty.PlayersList[playerID].Chips)
                 {
-                    bet = int.Parse(chipsCount.Text);
-                    //thisGame.Bank += int.Parse(chipsCount.Text);
-                    //player.Chips -= Convert.ToInt16(chipsCount.Text.Trim());
-                    this.Close();
+                    bet[playerID]= int.Parse(chipsCount.Text);
+                    if (playerID >= thisParty.PlayersList.Length-1) this.Close();
+                    else {
+                        playerID++;
+                        changeHeader();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("У вас не хватает фишек");
+                    MessageBox.Show("У игрока не хватает фишек");
                 }
             }
             else MessageBox.Show("Введите целое число больше единицы");
@@ -41,10 +46,12 @@ namespace RTIPPOGIT
 
         private void BetForm_Load(object sender, EventArgs e)
         {
-            name.Text = player.Name;
-            chips.Text = "Фишки: " + player.Chips.ToString();
+            changeHeader();
         }
-
+        private void changeHeader() {
+            name.Text = thisParty.PlayersList[playerID].Name;
+            chips.Text = "Баланс: " + thisParty.PlayersList[playerID].Chips.ToString();
+        }
         private void BetForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             //DialogResult exitResult = MessageBox.Show(
