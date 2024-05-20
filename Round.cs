@@ -35,7 +35,10 @@ namespace RTIPPOGIT
             if (!Reroll)
             {
                 int max = TurnsList.Max(i => i.GetScoreMax());
-                foreach (Turn turn in TurnsList) if (turn.GetScoreMax() == max) WinnersList.Add(turn.Player);
+                foreach (Turn turn in TurnsList) if (turn.GetScoreMax() == max) {
+                        WinnersList.Add(turn.Player);
+                        turn.ClearValues();
+                }      
             }
             else
             {

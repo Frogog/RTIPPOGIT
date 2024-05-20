@@ -58,14 +58,6 @@ namespace RTIPPOGIT
                 CurrentPlayer = PlayersList[i];
                 setChips(bet.bet[i]);
             }
-            //foreach (Player player in PlayersList)
-            //{
-            //    CurrentPlayer = player;
-            //    BetForm bet = new BetForm(player);
-            //    bet.ShowDialog();
-            //    if (bet.bet==0) Environment.Exit(0);
-            //    setChips(bet.bet);
-            //}
         }
         private void setChips(int chipsCount)
         {
@@ -120,10 +112,12 @@ namespace RTIPPOGIT
                 {
                     CurrentRound.WinnersList.Clear();
                     int max = PlayersList.Max(i => i.Score);
-                    foreach (Player player in PlayersList)
+
+                    CurrentRound.TurnsList.Where(i => i.Player.Score == max).ToList().ForEach(i=> 
                     {
-                        if (player.Score == max) CurrentRound.WinnersList.Add(player);
-                    }
+                        i.ClearValues();
+                        CurrentRound.WinnersList.Add(i.Player);
+                    });
 
                     string gameWinMes = CurrentRound.CreateGameWinMes();
 
@@ -145,6 +139,9 @@ namespace RTIPPOGIT
                     CurrentRound = RoundsList[Array.IndexOf(RoundsList, CurrentRound) + 1];
                 }
             }
+            //else { 
+            //    CurrentRound.TurnsList.Where(i=>cu)
+            //}
             return "";
         }
         

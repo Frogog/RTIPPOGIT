@@ -14,11 +14,14 @@ namespace RTIPPOGIT
     {
         private Party thisParty;
         private string endStat;
-        public Statistic(Party thisParty,string endStat)
+        private Field form;
+        public Statistic(Party thisParty,string endStat,Field form)
         {
             InitializeComponent();
             this.thisParty = thisParty;
             this.endStat = endStat;
+            this.form = form;
+            
         }
 
         private void Statistic_Load(object sender, EventArgs e)
@@ -30,6 +33,11 @@ namespace RTIPPOGIT
                 table.Rows.Add(player.Name, player.Score, (player.Chips-thisParty.Bank-100)*-1,player.Chips);
                 else table.Rows.Add(player.Name, player.Score, 100-player.Chips,player.Chips);
             }
+        }
+
+        private void Statistic_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            form.Close();
         }
     }
 }
