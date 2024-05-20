@@ -19,7 +19,7 @@ namespace RTIPPOGIT
         {
             return Math.Max(Math.Max(RollValues[0], RollValues[1]), RollValues[2]) + Math.Max(RollValues[3], RollValues[4]) + RollValues[5];
         }
-        public void ClearValues() {
+        public void ClearTurnValues() {
             for (int i = 0; i < RollValues.Length; i++) RollValues[i] = 0;
         }
         public void Test() {

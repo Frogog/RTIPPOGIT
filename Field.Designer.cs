@@ -35,13 +35,14 @@
             this.bank = new System.Windows.Forms.Label();
             this.round = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.playB = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.scoreDiceImage1 = new System.Windows.Forms.PictureBox();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.scoreDiceImage2 = new System.Windows.Forms.PictureBox();
             this.scoreDiceImage3 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.answerTest = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage1)).BeginInit();
@@ -114,15 +115,15 @@
             this.name.TabIndex = 20;
             this.name.Text = "Игрок";
             // 
-            // button1
+            // playB
             // 
-            this.button1.Location = new System.Drawing.Point(44, 252);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(214, 37);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Разыграть";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.playB.Location = new System.Drawing.Point(44, 252);
+            this.playB.Name = "playB";
+            this.playB.Size = new System.Drawing.Size(214, 37);
+            this.playB.TabIndex = 19;
+            this.playB.Text = "Разыграть";
+            this.playB.UseVisualStyleBackColor = true;
+            this.playB.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -183,12 +184,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // answerTest
+            // 
+            this.answerTest.AutoSize = true;
+            this.answerTest.Location = new System.Drawing.Point(12, 45);
+            this.answerTest.Name = "answerTest";
+            this.answerTest.Size = new System.Drawing.Size(44, 16);
+            this.answerTest.TabIndex = 38;
+            this.answerTest.Text = "label1";
+            // 
             // Field
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(316, 372);
+            this.Controls.Add(this.answerTest);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.scoreDiceImage3);
             this.Controls.Add(this.scoreDiceImage2);
@@ -201,7 +212,7 @@
             this.Controls.Add(this.bank);
             this.Controls.Add(this.round);
             this.Controls.Add(this.name);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.playB);
             this.Controls.Add(this.button3);
             this.Name = "Field";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -228,13 +239,14 @@
         private System.Windows.Forms.Label bank;
         private System.Windows.Forms.Label round;
         private System.Windows.Forms.Label name;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button playB;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox scoreDiceImage1;
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.PictureBox scoreDiceImage2;
         private System.Windows.Forms.PictureBox scoreDiceImage3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label answerTest;
     }
 }
 

@@ -37,7 +37,7 @@ namespace RTIPPOGIT
                 MessageBox.Show("Настройка игры не завершена\nБудет произведен выход из игры","Выход из игры");
                 Environment.Exit(0);
             } 
-            thisParty.startBet();
+            //thisParty.startBet();
             thisParty.StartGame();
             name.Text = thisParty.CurrentPlayer.Name;
             bank.Text = "Банк: " + thisParty.Bank.ToString();
@@ -55,6 +55,9 @@ namespace RTIPPOGIT
                     diceImage2.Image = diceSides[currentTurn.RollValues[1]];
                     diceImage3.Image = diceSides[currentTurn.RollValues[2]];
                     scoreDiceImage1.Image = diceSides[max];
+                    diceImage1.Visible = true;
+                    diceImage2.Visible = true;
+                    diceImage3.Visible = true;
                     break;
                 case 2:
                     max = Math.Max(currentTurn.RollValues[3], currentTurn.RollValues[4]);
@@ -64,13 +67,14 @@ namespace RTIPPOGIT
                     diceImage3.Visible = false;
                     break;
                 case 1:
-                    button1.Text = "Передать ход";
+                    playB.Text = "Передать ход";
                     diceImage1.Image = diceSides[currentTurn.RollValues[5]];
                     scoreDiceImage3.Image = diceSides[currentTurn.RollValues[5]];
                     diceImage2.Visible = false;
                     break;
                 case 0:
                     string answer = thisParty.ChangePlayer();
+                    answerTest.Text = answer;
                     if (answer == "Бонусный раунд") round.Text = answer;
                     if (round.Text != "Бонусный раунд") round.Text = "Раунд: " + (Array.IndexOf(thisParty.RoundsList, thisParty.CurrentRound) + 1).ToString();
                     if (answer == "Конец")
@@ -80,7 +84,7 @@ namespace RTIPPOGIT
                         stat.ShowDialog();
                     }
                     name.Text = thisParty.CurrentPlayer.Name;
-                    button1.Text = "Разыграть";
+                    playB.Text = "Разыграть";
                     diceToThrow = 4;
                     scoreDiceImage1.Image = diceSides[0];
                     scoreDiceImage2.Image = diceSides[0];
@@ -88,10 +92,13 @@ namespace RTIPPOGIT
                     diceImage1.Image = diceSides[0];
                     diceImage2.Image = diceSides[0];
                     diceImage3.Image = diceSides[0];
-                    diceImage2.Visible = true;
-                    diceImage3.Visible = true;
+                    diceImage1.Visible = false;
+                    diceImage2.Visible = false;
+                    diceImage3.Visible = false;
                     break;
             }
+            if (scoreLabel.Visible==false) scoreLabel.Visible = true;
+            scoreLabel.Text = diceToThrow != 4 ? "Счет " + currentTurn.GetScoreMax() : "Счет 0";
             diceToThrow--;
         }
 

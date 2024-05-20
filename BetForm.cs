@@ -51,6 +51,7 @@ namespace RTIPPOGIT
         private void changeHeader() {
             name.Text = thisParty.PlayersList[playerID].Name;
             chips.Text = "Баланс: " + thisParty.PlayersList[playerID].Chips.ToString();
+            chipsCount.Value = 1;
         }
         private void BetForm_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -33,11 +33,27 @@ namespace RTIPPOGIT
                 table.Rows.Add(player.Name, player.Score, (player.Chips-thisParty.Bank-100)*-1,player.Chips);
                 else table.Rows.Add(player.Name, player.Score, 100-player.Chips,player.Chips);
             }
+            foreach (Round round in thisParty.RoundsList) {
+                foreach (Turn turn in round.TurnsList) {
+                    if (round.WinnersList.Contains(turn.Player)) allTurn.Rows.Add(
+                        Array.IndexOf(thisParty.RoundsList, round) + 1,
+                        turn.Player.Name, turn.GetScoreMax(),
+                        turn.RollValues[0]+" " + turn.RollValues[1] + " " + turn.RollValues[2] + " " + turn.RollValues[3] + " " + turn.RollValues[4] + " " + turn.RollValues[5],
+                        "+"
+                        );
+                    else allTurn.Rows.Add(
+                        Array.IndexOf(thisParty.RoundsList, round) + 1,
+                        turn.Player.Name, turn.GetScoreMax(),
+                        turn.RollValues[0] + " " + turn.RollValues[1] + " " + turn.RollValues[2] + " " + turn.RollValues[3] + " " + turn.RollValues[4] + " " + turn.RollValues[5],
+                        "-"
+                        );
+                }
+            }
         }
 
         private void Statistic_FormClosing(object sender, FormClosingEventArgs e)
         {
-            form.Close();
+            if (endStat=="Конец") form.Close();
         }
     }
 }

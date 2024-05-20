@@ -35,10 +35,7 @@ namespace RTIPPOGIT
             if (!Reroll)
             {
                 int max = TurnsList.Max(i => i.GetScoreMax());
-                foreach (Turn turn in TurnsList) if (turn.GetScoreMax() == max) {
-                        WinnersList.Add(turn.Player);
-                        turn.ClearValues();
-                }      
+                foreach (Turn turn in TurnsList) if (turn.GetScoreMax() == max) WinnersList.Add(turn.Player);
             }
             else
             {
@@ -47,6 +44,7 @@ namespace RTIPPOGIT
             }
             Reroll = WinnersList.Count > 1;
             if (WinnersList.Count == 1) WinnersList[0].UpScore();
+           
         }
         public string CreateRoundWinMes() {
             string roundWinMes = "";
@@ -71,6 +69,11 @@ namespace RTIPPOGIT
             else gameWinMes = "Победитель игры: " + WinnersList[0].Name;
             return gameWinMes;
         }
+        public void clearRoundValues() {
+            foreach (Turn turn in TurnsList) {
+                if (WinnersList.Contains(turn.Player)) turn.ClearTurnValues();
+            }
+        }
         public string ShowScore()
         {
             string playersScore = "";
@@ -82,3 +85,23 @@ namespace RTIPPOGIT
         }
     }
 }
+//if (!Reroll)
+//{
+//    int max = TurnsList.Max(i => i.GetScoreMax());
+//    foreach (Turn turn in TurnsList) if (turn.GetScoreMax() == max) {
+//            WinnersList.Add(turn.Player);
+//            //turn.ClearValues();
+//    }
+//    if (WinnersList.Count > 1) {
+//        foreach (Turn turn in TurnsList) { 
+//            if (WinnersList.Contains(turn.Player)) turn.ClearValues();
+//        }
+//    }
+//}
+//else
+//{
+//    int max = TurnsList.Where(i => WinnersList.Contains(i.Player)).Max(i => i.GetScoreMax());
+//    foreach (Turn turn in TurnsList) if (turn.GetScoreMax() != max) WinnersList.Remove(turn.Player);
+//}
+//Reroll = WinnersList.Count > 1;
+//if (WinnersList.Count == 1) WinnersList[0].UpScore();
