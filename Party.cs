@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RTIPPOGIT
 {
@@ -15,6 +16,13 @@ namespace RTIPPOGIT
         public int Bank { get; private set; }
         public Player[] PlayersList { get; private set; }
         private Dice Dice = new Dice();
+        private int r = 1;
+        public async void WriteLog (string log){
+            using (StreamWriter writer = new StreamWriter("log.txt", true))
+            {
+                await writer.WriteLineAsync(log);
+            }
+        }
         public void StartGame()
         {
             CurrentPlayer = PlayersList[0];
@@ -25,29 +33,7 @@ namespace RTIPPOGIT
             Turn currentTurn = CurrentRound.TurnsList.FirstOrDefault(i => i.Player.id == CurrentPlayer.id);
             int[] values;
             values = Dice.playDices(diceAmount);
-            placeValues(values, currentTurn, CurrentPlayer);
-        }
-        private void placeValues(int[] values, Turn turn, Player player)
-        {
-            switch (values.Length)
-            {
-                case 3:
-                    for (int i = 0; i < values.Length; i++)
-                    {
-                        turn.RollValues[i] = values[i];
-                    }
-                    break;
-                case 2:
-                    for (int i = 3; i < values.Length + 3; i++)
-                    {
-                        turn.RollValues[i] = values[i - 3];
-                    }
-                    break;
-                case 1:
-                    turn.RollValues[5] = values[0];
-                    break;
-
-            }
+            currentTurn.placeValues(values);
         }
         public void startBet()
         {
@@ -81,15 +67,21 @@ namespace RTIPPOGIT
                 RoundsList[i] = new Round(PlayersList);
             }
         }
-        public string ChangePlayer()
+        public int ChangePlayer()
         {
-            string answer = "";
-            if (Array.IndexOf(PlayersList, CurrentPlayer) == PlayersList.Length - 1) answer = ChangeRound();
-            if (answer == "Конец") 
+            int answer = 2;
+            if (Array.IndexOf(PlayersList, CurrentPlayer) == PlayersList.Length - 1) {
+                answer = ChangeRound();
+                Console.WriteLine(answer);
+            }
+            if (answer == 0) 
             {
+                //WriteLog(r+" "+CurrentPlayer.ToString()+" "+answer);
+                Console.WriteLine("Конец юзается");
                 return answer;
             } 
             nextPlayer();
+            //WriteLog(r + " " + CurrentPlayer.ToString() + " " + answer);
             return answer;
         }
         private void nextPlayer()
@@ -104,8 +96,10 @@ namespace RTIPPOGIT
                 ChangePlayer();
             }
         }
-        private string ChangeRound()
+        private int ChangeRound()
         {
+            r++;
+            //WriteLog("Смена раунда "+CurrentPlayer.ToString());
             CurrentRound.UpdateWinners();
             string roundWinMes = CurrentRound.CreateRoundWinMes();
             MessageBox.Show(roundWinMes);
@@ -127,14 +121,14 @@ namespace RTIPPOGIT
                     {
                         CurrentRound.clearRoundValues();
                         MessageBox.Show(gameWinMes);
-                        return "Бонусный раунд";
+                        return 1;
                     }
                     else
                     {
                         gameWinMes += "\nБанк: " + Bank.ToString();
                         MessageBox.Show(gameWinMes);
                         CurrentRound.WinnersList[0].changeChips(Bank);
-                        return "Конец";
+                        return 0;
                     }
                 }
                 else
@@ -142,7 +136,7 @@ namespace RTIPPOGIT
                     CurrentRound = RoundsList[Array.IndexOf(RoundsList, CurrentRound) + 1];
                 }
             }
-            return "Раунд сменился";
+            return 2;
         }
         //private string endGame() {
         //    CurrentRound.WinnersList.Clear();

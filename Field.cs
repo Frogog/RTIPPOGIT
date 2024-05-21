@@ -28,6 +28,12 @@ namespace RTIPPOGIT
             [5] = Properties.Resources.Side_5,
             [6] = Properties.Resources.Side_6,
         };
+        private Dictionary<int, string> message = new Dictionary<int, string>()
+        {
+            [0] = "Конец",
+            [1] = "Бонусный раунд",
+            [2] = "Пропуск"
+        };
         private void Field_Load(object sender, EventArgs e)
         {
             thisParty = new Party();
@@ -73,14 +79,15 @@ namespace RTIPPOGIT
                     diceImage2.Visible = false;
                     break;
                 case 0:
-                    string answer = thisParty.ChangePlayer();
-                    answerTest.Text = answer;
-                    if (answer == "Бонусный раунд") round.Text = answer;
+                    int answer2 = thisParty.ChangePlayer();
+                    Console.WriteLine(answer2);
+                    answerTest.Text = message[answer2];
+                    if (message[answer2] == "Бонусный раунд") round.Text = message[answer2];
                     if (round.Text != "Бонусный раунд") round.Text = "Раунд: " + (Array.IndexOf(thisParty.RoundsList, thisParty.CurrentRound) + 1).ToString();
-                    if (answer == "Конец")
+                    if (message[answer2] == "Конец")
                     {
                         this.Hide();
-                        Statistic stat = new Statistic(thisParty,"Конец",this);
+                        Statistic stat = new Statistic(thisParty, "Конец", this);
                         stat.ShowDialog();
                     }
                     name.Text = thisParty.CurrentPlayer.Name;

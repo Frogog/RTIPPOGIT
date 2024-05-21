@@ -109,7 +109,7 @@
             this.allTurn.ReadOnly = true;
             this.allTurn.RowHeadersWidth = 51;
             this.allTurn.RowTemplate.Height = 24;
-            this.allTurn.Size = new System.Drawing.Size(601, 365);
+            this.allTurn.Size = new System.Drawing.Size(447, 365);
             this.allTurn.TabIndex = 3;
             // 
             // round
@@ -162,7 +162,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1270, 450);
+            this.ClientSize = new System.Drawing.Size(948, 459);
             this.Controls.Add(this.allTurn);
             this.Controls.Add(this.table);
             this.Name = "Statistic";

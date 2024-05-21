@@ -36,6 +36,7 @@ namespace RTIPPOGIT
             {
                 int max = TurnsList.Max(i => i.GetScoreMax());
                 foreach (Turn turn in TurnsList) if (turn.GetScoreMax() == max) WinnersList.Add(turn.Player);
+                clearRoundValues();
             }
             else
             {
