@@ -82,7 +82,7 @@ namespace RTIPPOGIT
             nextPlayer();
             return answer;
         }
-        private int nextPlayer()
+        private void nextPlayer()
         {
             if (Array.IndexOf(PlayersList, CurrentPlayer) + 1 >= PlayersList.Length)
             {
@@ -91,10 +91,8 @@ namespace RTIPPOGIT
             else CurrentPlayer = PlayersList[Array.IndexOf(PlayersList, CurrentPlayer) + 1];
             if ((CurrentRound.Reroll == true) && (!CurrentRound.WinnersList.Contains(CurrentPlayer)))
             {
-                int answer = ChangePlayer();
-                if (answer != 3) return answer;
+                ChangePlayer();
             }
-            return 3;
         }
         private int ChangeRound()
         {
