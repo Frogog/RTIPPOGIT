@@ -48,6 +48,7 @@
             this.nameT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valuesT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scoreT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage1)).BeginInit();
@@ -254,12 +255,23 @@
             this.scoreT.ReadOnly = true;
             this.scoreT.Width = 68;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(44, 337);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 32);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Field
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(693, 372);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.turnTable);
             this.Controls.Add(this.answerTest);
             this.Controls.Add(this.button2);
@@ -315,6 +327,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameT;
         private System.Windows.Forms.DataGridViewTextBoxColumn valuesT;
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreT;
+        private System.Windows.Forms.Button button1;
     }
 }
 

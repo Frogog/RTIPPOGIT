@@ -79,10 +79,14 @@ namespace RTIPPOGIT
             //    Console.WriteLine("Конец юзается");
             //    return answer;
             //} 
-            nextPlayer();
+
+            //nextPlayer();
+            int answer2 = nextPlayer();
+            if ((answer2 <3)) return answer2;
+            Console.WriteLine(answer + " " + CurrentPlayer.Name + " " + answer2);
             return answer;
         }
-        private void nextPlayer()
+        private int nextPlayer()
         {
             if (Array.IndexOf(PlayersList, CurrentPlayer) + 1 >= PlayersList.Length)
             {
@@ -91,8 +95,17 @@ namespace RTIPPOGIT
             else CurrentPlayer = PlayersList[Array.IndexOf(PlayersList, CurrentPlayer) + 1];
             if ((CurrentRound.Reroll == true) && (!CurrentRound.WinnersList.Contains(CurrentPlayer)))
             {
-                ChangePlayer();
+                int answer;
+                if (Array.IndexOf(PlayersList, CurrentPlayer) == PlayersList.Length - 1)
+                {
+                    answer = ChangeRound();
+                    nextPlayer();
+                    return answer;
+                }
+                else answer = nextPlayer();
+                return answer;
             }
+            return 3;
         }
         private int ChangeRound()
         {

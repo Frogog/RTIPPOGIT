@@ -85,11 +85,11 @@ namespace RTIPPOGIT
                     answerTest.Text = message[answer2];
                     if (message[answer2] == "Бонусный раунд") round.Text = message[answer2];
                     if (round.Text != "Бонусный раунд") round.Text = "Раунд: " + (Array.IndexOf(thisParty.RoundsList, thisParty.CurrentRound) + 1).ToString();
-                    if ((message[answer2] == "Смена раунда") || (message[answer2] == "Бонусный раунд")) {
-                        //if (thisParty.CurrentRound.Reroll != true) 
-                        turnTable.Rows.Clear();
-                        UpdateTurnTable(answer2);
-                    } 
+                    //if ((message[answer2] == "Смена раунда") || (message[answer2] == "Бонусный раунд")) {
+                    //    //if (thisParty.CurrentRound.Reroll != true) 
+                    //    turnTable.Rows.Clear();
+                    //    UpdateTurnTable();
+                    //} 
                     if (message[answer2] == "Конец")
                     {
                         this.Hide();
@@ -111,7 +111,8 @@ namespace RTIPPOGIT
                     break;
             }
             if (scoreLabel.Visible==false) scoreLabel.Visible = true;
-            if (diceToThrow!=4) UpdateTurnTable(3);
+            //if (diceToThrow!=4) 
+            UpdateTurnTable();
             scoreLabel.Text = diceToThrow != 4 ? "Счет " + currentTurn.GetScoreMax() : "Счет 0";
             diceToThrow--;
         }
@@ -141,44 +142,34 @@ namespace RTIPPOGIT
             }
             
         }
-        private void UpdateTurnTable(int mode)
+        private void UpdateTurnTable()
         {
-            Turn currentTurn = thisParty.CurrentRound.TurnsList.FirstOrDefault(i => i.Player.id == thisParty.CurrentPlayer.id);
-            //if ((thisParty.CurrentRound.Reroll)&&(mode!=3)) { 
-            //    ClearTurnTable();
-            //}
-            bool updated = false;
-
-            foreach (DataGridViewRow row in turnTable.Rows)
-            {
-                if (row.Cells["idT"].Value.ToString() == thisParty.CurrentPlayer.id.ToString())
+            turnTable.Rows.Clear();
+            foreach (Turn turn in thisParty.CurrentRound.TurnsList) {
+                if (!thisParty.CurrentRound.Reroll)
                 {
-                    row.Cells["valuesT"].Value = currentTurn.RollValues[0]+", "+currentTurn.RollValues[1] + ", " + currentTurn.RollValues[2] + ", " + currentTurn.RollValues[3] + ", " + currentTurn.RollValues[4] + ", " + currentTurn.RollValues[5];
-                    row.Cells["scoreT"].Value = currentTurn.GetScoreMax();
-                    updated = true;
-                    break; 
+                    turnTable.Rows.Add(turn.Player.id.ToString(), turn.Player.Name, turn.RollValues[0] + ", " + turn.RollValues[1] + ", " + turn.RollValues[2] + ", " + turn.RollValues[3] + ", " + turn.RollValues[4] + ", " + turn.RollValues[5], turn.GetScoreMax());
+                }
+                else {
+                    if (thisParty.CurrentRound.WinnersList.Contains(turn.Player)) {
+                        turnTable.Rows.Add(turn.Player.id.ToString(), turn.Player.Name, turn.RollValues[0] + ", " + turn.RollValues[1] + ", " + turn.RollValues[2] + ", " + turn.RollValues[3] + ", " + turn.RollValues[4] + ", " + turn.RollValues[5], turn.GetScoreMax());
+                    }
                 }
             }
-            if (!updated)
-            {
-                turnTable.Rows.Add(thisParty.CurrentPlayer.id.ToString(), thisParty.CurrentPlayer.Name, currentTurn.RollValues[0] + ", " + currentTurn.RollValues[1] + ", " + currentTurn.RollValues[2] + ", " + currentTurn.RollValues[3] + ", " + currentTurn.RollValues[4] + ", " + currentTurn.RollValues[5],currentTurn.GetScoreMax());
-            }
+          
         }
-        //private void ClearTurnTable() {
-        //    foreach (DataGridViewRow row in turnTable.Rows)
-        //    {
-        //        if (!thisParty.CurrentRound.WinnersList.Any(i => i.id == Convert.ToInt32(row.Cells["idT"].Value)))
-        //        {
-        //            turnTable.Rows.Remove(row);
-        //        }
-        //        else row.SetValues(row.Cells["idT"].Value.ToString(), row.Cells["nameT"].Value.ToString(), "0, 0, 0, 0, 0, 0", "0");
-        //    }
-        //}
         private void button2_Click(object sender, EventArgs e)
         {
             thisParty.CurrentRound.TurnsList[0].Test();
             thisParty.CurrentRound.TurnsList[1].Test();
             thisParty.CurrentRound.TurnsList[2].Test();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            thisParty.PlayersList[0].Score = 5;
+            thisParty.PlayersList[2].Score = 5;
+            thisParty.PlayersList[4].Score = 5;
         }
     }
 }

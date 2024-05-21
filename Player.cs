@@ -11,7 +11,7 @@ namespace RTIPPOGIT
     {
         public int id { get; private set; }
         public string Name { get; private set; }
-        public int Score { get; private set; } = 0;
+        public int Score { get;  set; } = 0;
         public int Chips { get; private set; } = 100;
         public override string ToString()
         {
