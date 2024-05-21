@@ -69,22 +69,20 @@ namespace RTIPPOGIT
         }
         public int ChangePlayer()
         {
-            int answer = 2;
+            int answer = 3;
             if (Array.IndexOf(PlayersList, CurrentPlayer) == PlayersList.Length - 1) {
                 answer = ChangeRound();
-                Console.WriteLine(answer);
+                //Console.WriteLine(answer);
             }
-            if (answer == 0) 
-            {
-                //WriteLog(r+" "+CurrentPlayer.ToString()+" "+answer);
-                Console.WriteLine("Конец юзается");
-                return answer;
-            } 
+            //if (answer == 0) 
+            //{
+            //    Console.WriteLine("Конец юзается");
+            //    return answer;
+            //} 
             nextPlayer();
-            //WriteLog(r + " " + CurrentPlayer.ToString() + " " + answer);
             return answer;
         }
-        private void nextPlayer()
+        private int nextPlayer()
         {
             if (Array.IndexOf(PlayersList, CurrentPlayer) + 1 >= PlayersList.Length)
             {
@@ -93,17 +91,17 @@ namespace RTIPPOGIT
             else CurrentPlayer = PlayersList[Array.IndexOf(PlayersList, CurrentPlayer) + 1];
             if ((CurrentRound.Reroll == true) && (!CurrentRound.WinnersList.Contains(CurrentPlayer)))
             {
-                ChangePlayer();
+                int answer = ChangePlayer();
+                if (answer != 3) return answer;
             }
+            return 3;
         }
         private int ChangeRound()
         {
             r++;
-            //WriteLog("Смена раунда "+CurrentPlayer.ToString());
             CurrentRound.UpdateWinners();
             string roundWinMes = CurrentRound.CreateRoundWinMes();
             MessageBox.Show(roundWinMes);
-
             if (!CurrentRound.MoreWinners())
             {
                 if (Array.IndexOf(RoundsList, CurrentRound) + 1 >= RoundsList.Length)

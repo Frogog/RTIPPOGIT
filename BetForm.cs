@@ -52,6 +52,7 @@ namespace RTIPPOGIT
             name.Text = thisParty.PlayersList[playerID].Name;
             chips.Text = "Баланс: " + thisParty.PlayersList[playerID].Chips.ToString();
             chipsCount.Value = 1;
+            chipsCount.Maximum = thisParty.PlayersList[playerID].Chips;
         }
         private void BetForm_FormClosing(object sender, FormClosingEventArgs e)
         {

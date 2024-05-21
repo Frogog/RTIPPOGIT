@@ -53,7 +53,17 @@ namespace RTIPPOGIT
 
         private void Statistic_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (endStat=="Конец") form.Close();
+            if (endStat == "Конец") {
+                DialogResult exitResult = MessageBox.Show(
+                "Вы уверены, что хотите выйти из игры?",
+                "Подтвердите выход",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+                if (exitResult == DialogResult.No) e.Cancel = true;
+                else form.Close();
+            }
+                
         }
     }
 }

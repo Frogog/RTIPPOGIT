@@ -32,7 +32,8 @@ namespace RTIPPOGIT
         {
             [0] = "Конец",
             [1] = "Бонусный раунд",
-            [2] = "Пропуск"
+            [2] = "Смена раунда",
+            [3] = "Смена игрока"
         };
         private void Field_Load(object sender, EventArgs e)
         {
@@ -80,10 +81,15 @@ namespace RTIPPOGIT
                     break;
                 case 0:
                     int answer2 = thisParty.ChangePlayer();
-                    Console.WriteLine(answer2);
+                    //Console.WriteLine(answer2);
                     answerTest.Text = message[answer2];
                     if (message[answer2] == "Бонусный раунд") round.Text = message[answer2];
                     if (round.Text != "Бонусный раунд") round.Text = "Раунд: " + (Array.IndexOf(thisParty.RoundsList, thisParty.CurrentRound) + 1).ToString();
+                    if ((message[answer2] == "Смена раунда") || (message[answer2] == "Бонусный раунд")) {
+                        //if (thisParty.CurrentRound.Reroll != true) 
+                        turnTable.Rows.Clear();
+                        UpdateTurnTable(answer2);
+                    } 
                     if (message[answer2] == "Конец")
                     {
                         this.Hide();
@@ -105,6 +111,7 @@ namespace RTIPPOGIT
                     break;
             }
             if (scoreLabel.Visible==false) scoreLabel.Visible = true;
+            if (diceToThrow!=4) UpdateTurnTable(3);
             scoreLabel.Text = diceToThrow != 4 ? "Счет " + currentTurn.GetScoreMax() : "Счет 0";
             diceToThrow--;
         }
@@ -113,14 +120,6 @@ namespace RTIPPOGIT
         {
             string str = "Кости игроков\n";
             str += thisParty.CurrentRound.ShowScore();
-            //foreach (Turn turn in thisParty.CurrentRound.TurnsList)
-            //{
-            //    str += "\n" + turn.Player.Name + " ";
-            //    foreach (int value in turn.RollValues)
-            //    {
-            //        str += value + " ";
-            //    }
-            //}
             MessageBox.Show(str);
         }
 
@@ -131,15 +130,50 @@ namespace RTIPPOGIT
 
         private void Field_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //DialogResult exitResult = MessageBox.Show(
-            //    "Вы уверены, что хотите выйти из игры?",
-            //    "Подтвердите выход",
-            //    MessageBoxButtons.YesNo,
-            //    MessageBoxIcon.Question,
-            //    MessageBoxDefaultButton.Button2);
-            //if (exitResult == DialogResult.No) e.Cancel = true;
+            if (this.Visible) {
+                DialogResult exitResult = MessageBox.Show(
+                "Вы уверены, что хотите выйти из игры?",
+                "Подтвердите выход",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+                if (exitResult == DialogResult.No) e.Cancel = true;
+            }
+            
         }
+        private void UpdateTurnTable(int mode)
+        {
+            Turn currentTurn = thisParty.CurrentRound.TurnsList.FirstOrDefault(i => i.Player.id == thisParty.CurrentPlayer.id);
+            //if ((thisParty.CurrentRound.Reroll)&&(mode!=3)) { 
+            //    ClearTurnTable();
+            //}
+            bool updated = false;
 
+            foreach (DataGridViewRow row in turnTable.Rows)
+            {
+                if (row.Cells["idT"].Value.ToString() == thisParty.CurrentPlayer.id.ToString())
+                {
+                    row.Cells["valuesT"].Value = currentTurn.RollValues[0]+", "+currentTurn.RollValues[1] + ", " + currentTurn.RollValues[2] + ", " + currentTurn.RollValues[3] + ", " + currentTurn.RollValues[4] + ", " + currentTurn.RollValues[5];
+                    row.Cells["scoreT"].Value = currentTurn.GetScoreMax();
+                    updated = true;
+                    break; 
+                }
+            }
+            if (!updated)
+            {
+                turnTable.Rows.Add(thisParty.CurrentPlayer.id.ToString(), thisParty.CurrentPlayer.Name, currentTurn.RollValues[0] + ", " + currentTurn.RollValues[1] + ", " + currentTurn.RollValues[2] + ", " + currentTurn.RollValues[3] + ", " + currentTurn.RollValues[4] + ", " + currentTurn.RollValues[5],currentTurn.GetScoreMax());
+            }
+        }
+        //private void ClearTurnTable() {
+        //    foreach (DataGridViewRow row in turnTable.Rows)
+        //    {
+        //        if (!thisParty.CurrentRound.WinnersList.Any(i => i.id == Convert.ToInt32(row.Cells["idT"].Value)))
+        //        {
+        //            turnTable.Rows.Remove(row);
+        //        }
+        //        else row.SetValues(row.Cells["idT"].Value.ToString(), row.Cells["nameT"].Value.ToString(), "0, 0, 0, 0, 0, 0", "0");
+        //    }
+        //}
         private void button2_Click(object sender, EventArgs e)
         {
             thisParty.CurrentRound.TurnsList[0].Test();

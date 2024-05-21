@@ -43,12 +43,18 @@
             this.scoreDiceImage3 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.answerTest = new System.Windows.Forms.Label();
+            this.turnTable = new System.Windows.Forms.DataGridView();
+            this.idT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valuesT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scoreT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.turnTable)).BeginInit();
             this.SuspendLayout();
             // 
             // diceImage3
@@ -193,12 +199,68 @@
             this.answerTest.TabIndex = 38;
             this.answerTest.Text = "label1";
             // 
+            // turnTable
+            // 
+            this.turnTable.AllowUserToAddRows = false;
+            this.turnTable.AllowUserToDeleteRows = false;
+            this.turnTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.turnTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idT,
+            this.nameT,
+            this.valuesT,
+            this.scoreT});
+            this.turnTable.Location = new System.Drawing.Point(319, 13);
+            this.turnTable.Name = "turnTable";
+            this.turnTable.ReadOnly = true;
+            this.turnTable.RowHeadersWidth = 51;
+            this.turnTable.RowTemplate.Height = 24;
+            this.turnTable.Size = new System.Drawing.Size(362, 347);
+            this.turnTable.TabIndex = 39;
+            // 
+            // idT
+            // 
+            this.idT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idT.HeaderText = "ID";
+            this.idT.MinimumWidth = 6;
+            this.idT.Name = "idT";
+            this.idT.ReadOnly = true;
+            this.idT.Visible = false;
+            this.idT.Width = 49;
+            // 
+            // nameT
+            // 
+            this.nameT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nameT.HeaderText = "Имя";
+            this.nameT.MinimumWidth = 6;
+            this.nameT.Name = "nameT";
+            this.nameT.ReadOnly = true;
+            this.nameT.Width = 62;
+            // 
+            // valuesT
+            // 
+            this.valuesT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.valuesT.HeaderText = "Кости";
+            this.valuesT.MinimumWidth = 6;
+            this.valuesT.Name = "valuesT";
+            this.valuesT.ReadOnly = true;
+            this.valuesT.Width = 74;
+            // 
+            // scoreT
+            // 
+            this.scoreT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.scoreT.HeaderText = "Счет";
+            this.scoreT.MinimumWidth = 6;
+            this.scoreT.Name = "scoreT";
+            this.scoreT.ReadOnly = true;
+            this.scoreT.Width = 68;
+            // 
             // Field
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(316, 372);
+            this.ClientSize = new System.Drawing.Size(693, 372);
+            this.Controls.Add(this.turnTable);
             this.Controls.Add(this.answerTest);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.scoreDiceImage3);
@@ -225,6 +287,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.turnTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,6 +310,11 @@
         private System.Windows.Forms.PictureBox scoreDiceImage3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label answerTest;
+        private System.Windows.Forms.DataGridView turnTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valuesT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scoreT;
     }
 }
 

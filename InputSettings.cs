@@ -23,13 +23,13 @@ namespace RTIPPOGIT
 
         private void InputPlayers_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //DialogResult exitResult = MessageBox.Show(
-            //    "Вы уверены, что хотите закончить настройку игры?",
-            //    "Подтвердите выход", 
-            //    MessageBoxButtons.YesNo, 
-            //    MessageBoxIcon.Question, 
-            //    MessageBoxDefaultButton.Button2);
-            //if (exitResult == DialogResult.No) e.Cancel = true;
+            DialogResult exitResult = MessageBox.Show(
+                "Вы уверены, что хотите закончить настройку игры?",
+                "Подтвердите выход",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+            if (exitResult == DialogResult.No) e.Cancel = true;
         }
 
         private void confirmB_Click(object sender, EventArgs e)

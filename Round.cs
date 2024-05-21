@@ -52,7 +52,8 @@ namespace RTIPPOGIT
             if (WinnersList.Count > 1)
             {
                 roundWinMes = "Победители Раунда: \n";
-                foreach (var player in WinnersList) roundWinMes += player.Name + " ";
+                foreach (var player in WinnersList) roundWinMes += player.Name + "\n";
+                roundWinMes += "Раунд будет переигран для определения победителя";
             }
             else roundWinMes = "Победитель Раунда: \n" + WinnersList[0].Name;
             return roundWinMes;
