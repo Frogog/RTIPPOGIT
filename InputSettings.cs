@@ -46,5 +46,6 @@ namespace RTIPPOGIT
             }
             else MessageBox.Show("Количество игроков должно быть целым числом больше 1");
         }
+
     }
 }

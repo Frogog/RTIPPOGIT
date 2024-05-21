@@ -26,28 +26,21 @@ namespace RTIPPOGIT
 
         private void Statistic_Load(object sender, EventArgs e)
         {
+            if (endStat != "Конец") { 
+                winnerLabel.Visible = false;
+                winnerLabel.Visible = false;
+            }
+            else
+            {
+                winnerLabel.Text = "Победитель: " + thisParty.RoundsList[thisParty.RoundsList.Length - 1].WinnersList[0].Name;
+                bankLabel.Text = "Банк: " + thisParty.Bank ;
+            }
             foreach (Player player in thisParty.PlayersList)
             {
                 if ((endStat == "Конец") && 
                     (thisParty.RoundsList[thisParty.RoundsList.Length-1].WinnersList.Contains(player))) 
                 table.Rows.Add(player.Name, player.Score, (player.Chips-thisParty.Bank-100)*-1,player.Chips);
                 else table.Rows.Add(player.Name, player.Score, 100-player.Chips,player.Chips);
-            }
-            foreach (Round round in thisParty.RoundsList) {
-                foreach (Turn turn in round.TurnsList) {
-                    if (round.WinnersList.Contains(turn.Player)) allTurn.Rows.Add(
-                        Array.IndexOf(thisParty.RoundsList, round) + 1,
-                        turn.Player.Name, turn.GetScoreMax(),
-                        turn.RollValues[0]+" " + turn.RollValues[1] + " " + turn.RollValues[2] + " " + turn.RollValues[3] + " " + turn.RollValues[4] + " " + turn.RollValues[5],
-                        "+"
-                        );
-                    else allTurn.Rows.Add(
-                        Array.IndexOf(thisParty.RoundsList, round) + 1,
-                        turn.Player.Name, turn.GetScoreMax(),
-                        turn.RollValues[0] + " " + turn.RollValues[1] + " " + turn.RollValues[2] + " " + turn.RollValues[3] + " " + turn.RollValues[4] + " " + turn.RollValues[5],
-                        "-"
-                        );
-                }
             }
         }
 

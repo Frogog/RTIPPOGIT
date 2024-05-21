@@ -33,14 +33,10 @@
             this.score = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.сhips = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allTurn = new System.Windows.Forms.DataGridView();
-            this.round = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.turnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scoreTurn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.turn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.winner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableHeader = new System.Windows.Forms.Label();
+            this.winnerLabel = new System.Windows.Forms.Label();
+            this.bankLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allTurn)).BeginInit();
             this.SuspendLayout();
             // 
             // table
@@ -53,12 +49,12 @@
             this.score,
             this.bet,
             this.сhips});
-            this.table.Location = new System.Drawing.Point(12, 12);
+            this.table.Location = new System.Drawing.Point(12, 37);
             this.table.Name = "table";
             this.table.ReadOnly = true;
             this.table.RowHeadersWidth = 51;
             this.table.RowTemplate.Height = 24;
-            this.table.Size = new System.Drawing.Size(462, 365);
+            this.table.Size = new System.Drawing.Size(464, 365);
             this.table.TabIndex = 2;
             // 
             // name
@@ -93,77 +89,42 @@
             this.сhips.ReadOnly = true;
             this.сhips.Width = 79;
             // 
-            // allTurn
+            // tableHeader
             // 
-            this.allTurn.AllowUserToAddRows = false;
-            this.allTurn.AllowUserToDeleteRows = false;
-            this.allTurn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.allTurn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.round,
-            this.turnName,
-            this.scoreTurn,
-            this.turn,
-            this.winner});
-            this.allTurn.Location = new System.Drawing.Point(480, 12);
-            this.allTurn.Name = "allTurn";
-            this.allTurn.ReadOnly = true;
-            this.allTurn.RowHeadersWidth = 51;
-            this.allTurn.RowTemplate.Height = 24;
-            this.allTurn.Size = new System.Drawing.Size(447, 365);
-            this.allTurn.TabIndex = 3;
+            this.tableHeader.AutoSize = true;
+            this.tableHeader.Location = new System.Drawing.Point(12, 9);
+            this.tableHeader.Name = "tableHeader";
+            this.tableHeader.Size = new System.Drawing.Size(120, 16);
+            this.tableHeader.TabIndex = 3;
+            this.tableHeader.Text = "Результаты игры";
             // 
-            // round
+            // winnerLabel
             // 
-            this.round.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.round.HeaderText = "Раунд";
-            this.round.MinimumWidth = 6;
-            this.round.Name = "round";
-            this.round.ReadOnly = true;
-            this.round.Width = 77;
+            this.winnerLabel.AutoSize = true;
+            this.winnerLabel.Location = new System.Drawing.Point(260, 9);
+            this.winnerLabel.Name = "winnerLabel";
+            this.winnerLabel.Size = new System.Drawing.Size(142, 16);
+            this.winnerLabel.TabIndex = 4;
+            this.winnerLabel.Text = "Победитель: Игрок 1";
             // 
-            // turnName
+            // bankLabel
             // 
-            this.turnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.turnName.HeaderText = "Имя";
-            this.turnName.MinimumWidth = 6;
-            this.turnName.Name = "turnName";
-            this.turnName.ReadOnly = true;
-            this.turnName.Width = 62;
-            // 
-            // scoreTurn
-            // 
-            this.scoreTurn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.scoreTurn.HeaderText = "Счет";
-            this.scoreTurn.MinimumWidth = 6;
-            this.scoreTurn.Name = "scoreTurn";
-            this.scoreTurn.ReadOnly = true;
-            this.scoreTurn.Width = 68;
-            // 
-            // turn
-            // 
-            this.turn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.turn.HeaderText = "Ход";
-            this.turn.MinimumWidth = 6;
-            this.turn.Name = "turn";
-            this.turn.ReadOnly = true;
-            this.turn.Width = 60;
-            // 
-            // winner
-            // 
-            this.winner.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.winner.HeaderText = "Победитель";
-            this.winner.MinimumWidth = 6;
-            this.winner.Name = "winner";
-            this.winner.ReadOnly = true;
-            this.winner.Width = 116;
+            this.bankLabel.AutoSize = true;
+            this.bankLabel.Location = new System.Drawing.Point(410, 9);
+            this.bankLabel.Name = "bankLabel";
+            this.bankLabel.Size = new System.Drawing.Size(66, 16);
+            this.bankLabel.TabIndex = 5;
+            this.bankLabel.Text = "Банк: 230";
             // 
             // Statistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(948, 459);
-            this.Controls.Add(this.allTurn);
+            this.ClientSize = new System.Drawing.Size(489, 414);
+            this.Controls.Add(this.bankLabel);
+            this.Controls.Add(this.winnerLabel);
+            this.Controls.Add(this.tableHeader);
             this.Controls.Add(this.table);
             this.Name = "Statistic";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -171,8 +132,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Statistic_FormClosing);
             this.Load += new System.EventHandler(this.Statistic_Load);
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allTurn)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -183,11 +144,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn score;
         private System.Windows.Forms.DataGridViewTextBoxColumn bet;
         private System.Windows.Forms.DataGridViewTextBoxColumn сhips;
-        private System.Windows.Forms.DataGridView allTurn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn round;
-        private System.Windows.Forms.DataGridViewTextBoxColumn turnName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scoreTurn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn turn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn winner;
+        private System.Windows.Forms.Label tableHeader;
+        private System.Windows.Forms.Label winnerLabel;
+        private System.Windows.Forms.Label bankLabel;
     }
 }

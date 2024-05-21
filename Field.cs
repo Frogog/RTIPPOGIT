@@ -83,7 +83,9 @@ namespace RTIPPOGIT
                     int answer2 = thisParty.ChangePlayer();
                     //Console.WriteLine(answer2);
                     answerTest.Text = message[answer2];
-                    if (message[answer2] == "Бонусный раунд") round.Text = message[answer2];
+                    if (message[answer2] == "Бонусный раунд") {
+                        round.Text = message[answer2];
+                    } 
                     if (round.Text != "Бонусный раунд") round.Text = "Раунд: " + (Array.IndexOf(thisParty.RoundsList, thisParty.CurrentRound) + 1).ToString();
                     //if ((message[answer2] == "Смена раунда") || (message[answer2] == "Бонусный раунд")) {
                     //    //if (thisParty.CurrentRound.Reroll != true) 

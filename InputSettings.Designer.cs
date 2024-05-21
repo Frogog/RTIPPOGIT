@@ -68,6 +68,11 @@
             // playerAmount
             // 
             this.playerAmount.Location = new System.Drawing.Point(15, 36);
+            this.playerAmount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.playerAmount.Minimum = new decimal(new int[] {
             2,
             0,
@@ -85,6 +90,11 @@
             // roundAmount
             // 
             this.roundAmount.Location = new System.Drawing.Point(162, 36);
+            this.roundAmount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.roundAmount.Minimum = new decimal(new int[] {
             1,
             0,
@@ -104,13 +114,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(315, 129);
+            this.ClientSize = new System.Drawing.Size(315, 119);
             this.Controls.Add(this.roundAmount);
             this.Controls.Add(this.playerAmount);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.confirmB);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "InputSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ввод игроков и раундов";

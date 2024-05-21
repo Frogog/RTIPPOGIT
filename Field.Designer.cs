@@ -28,62 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.diceImage3 = new System.Windows.Forms.PictureBox();
-            this.diceImage2 = new System.Windows.Forms.PictureBox();
-            this.diceImage1 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.bank = new System.Windows.Forms.Label();
             this.round = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
             this.playB = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.scoreDiceImage1 = new System.Windows.Forms.PictureBox();
             this.scoreLabel = new System.Windows.Forms.Label();
-            this.scoreDiceImage2 = new System.Windows.Forms.PictureBox();
-            this.scoreDiceImage3 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.answerTest = new System.Windows.Forms.Label();
             this.turnTable = new System.Windows.Forms.DataGridView();
             this.idT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valuesT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scoreT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
+            this.scoreDiceImage3 = new System.Windows.Forms.PictureBox();
+            this.scoreDiceImage2 = new System.Windows.Forms.PictureBox();
+            this.scoreDiceImage1 = new System.Windows.Forms.PictureBox();
+            this.diceImage3 = new System.Windows.Forms.PictureBox();
+            this.diceImage2 = new System.Windows.Forms.PictureBox();
+            this.diceImage1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.answerTest = new System.Windows.Forms.Label();
+            this.tableHeader = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.turnTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.turnTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // diceImage3
-            // 
-            this.diceImage3.Location = new System.Drawing.Point(179, 162);
-            this.diceImage3.Name = "diceImage3";
-            this.diceImage3.Size = new System.Drawing.Size(50, 50);
-            this.diceImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.diceImage3.TabIndex = 32;
-            this.diceImage3.TabStop = false;
-            // 
-            // diceImage2
-            // 
-            this.diceImage2.Location = new System.Drawing.Point(123, 162);
-            this.diceImage2.Name = "diceImage2";
-            this.diceImage2.Size = new System.Drawing.Size(50, 50);
-            this.diceImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.diceImage2.TabIndex = 31;
-            this.diceImage2.TabStop = false;
-            // 
-            // diceImage1
-            // 
-            this.diceImage1.Location = new System.Drawing.Point(67, 162);
-            this.diceImage1.Name = "diceImage1";
-            this.diceImage1.Size = new System.Drawing.Size(50, 50);
-            this.diceImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.diceImage1.TabIndex = 30;
-            this.diceImage1.TabStop = false;
             // 
             // button5
             // 
@@ -107,7 +83,7 @@
             // round
             // 
             this.round.AutoSize = true;
-            this.round.Location = new System.Drawing.Point(121, 9);
+            this.round.Location = new System.Drawing.Point(120, 9);
             this.round.Name = "round";
             this.round.Size = new System.Drawing.Size(61, 16);
             this.round.TabIndex = 23;
@@ -118,9 +94,9 @@
             this.name.AutoSize = true;
             this.name.Location = new System.Drawing.Point(12, 9);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(46, 16);
+            this.name.Size = new System.Drawing.Size(56, 16);
             this.name.TabIndex = 20;
-            this.name.Text = "Игрок";
+            this.name.Text = "Игрок 1";
             // 
             // playB
             // 
@@ -142,44 +118,14 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // scoreDiceImage1
-            // 
-            this.scoreDiceImage1.Image = global::RTIPPOGIT.Properties.Resources.Side_0;
-            this.scoreDiceImage1.Location = new System.Drawing.Point(67, 86);
-            this.scoreDiceImage1.Name = "scoreDiceImage1";
-            this.scoreDiceImage1.Size = new System.Drawing.Size(50, 50);
-            this.scoreDiceImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.scoreDiceImage1.TabIndex = 33;
-            this.scoreDiceImage1.TabStop = false;
-            // 
             // scoreLabel
             // 
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Location = new System.Drawing.Point(129, 55);
+            this.scoreLabel.Location = new System.Drawing.Point(124, 55);
             this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(39, 16);
+            this.scoreLabel.Size = new System.Drawing.Size(49, 16);
             this.scoreLabel.TabIndex = 34;
-            this.scoreLabel.Text = "Счет";
-            // 
-            // scoreDiceImage2
-            // 
-            this.scoreDiceImage2.Image = global::RTIPPOGIT.Properties.Resources.Side_0;
-            this.scoreDiceImage2.Location = new System.Drawing.Point(123, 86);
-            this.scoreDiceImage2.Name = "scoreDiceImage2";
-            this.scoreDiceImage2.Size = new System.Drawing.Size(50, 50);
-            this.scoreDiceImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.scoreDiceImage2.TabIndex = 35;
-            this.scoreDiceImage2.TabStop = false;
-            // 
-            // scoreDiceImage3
-            // 
-            this.scoreDiceImage3.Image = global::RTIPPOGIT.Properties.Resources.Side_0;
-            this.scoreDiceImage3.Location = new System.Drawing.Point(179, 86);
-            this.scoreDiceImage3.Name = "scoreDiceImage3";
-            this.scoreDiceImage3.Size = new System.Drawing.Size(50, 50);
-            this.scoreDiceImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.scoreDiceImage3.TabIndex = 36;
-            this.scoreDiceImage3.TabStop = false;
+            this.scoreLabel.Text = "Счет 0";
             // 
             // button2
             // 
@@ -191,15 +137,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // answerTest
-            // 
-            this.answerTest.AutoSize = true;
-            this.answerTest.Location = new System.Drawing.Point(12, 45);
-            this.answerTest.Name = "answerTest";
-            this.answerTest.Size = new System.Drawing.Size(44, 16);
-            this.answerTest.TabIndex = 38;
-            this.answerTest.Text = "label1";
-            // 
             // turnTable
             // 
             this.turnTable.AllowUserToAddRows = false;
@@ -210,12 +147,12 @@
             this.nameT,
             this.valuesT,
             this.scoreT});
-            this.turnTable.Location = new System.Drawing.Point(319, 13);
+            this.turnTable.Location = new System.Drawing.Point(327, 28);
             this.turnTable.Name = "turnTable";
             this.turnTable.ReadOnly = true;
             this.turnTable.RowHeadersWidth = 51;
             this.turnTable.RowTemplate.Height = 24;
-            this.turnTable.Size = new System.Drawing.Size(362, 347);
+            this.turnTable.Size = new System.Drawing.Size(315, 304);
             this.turnTable.TabIndex = 39;
             // 
             // idT
@@ -265,12 +202,100 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // scoreDiceImage3
+            // 
+            this.scoreDiceImage3.Image = global::RTIPPOGIT.Properties.Resources.Side_0;
+            this.scoreDiceImage3.Location = new System.Drawing.Point(179, 86);
+            this.scoreDiceImage3.Name = "scoreDiceImage3";
+            this.scoreDiceImage3.Size = new System.Drawing.Size(50, 50);
+            this.scoreDiceImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.scoreDiceImage3.TabIndex = 36;
+            this.scoreDiceImage3.TabStop = false;
+            // 
+            // scoreDiceImage2
+            // 
+            this.scoreDiceImage2.Image = global::RTIPPOGIT.Properties.Resources.Side_0;
+            this.scoreDiceImage2.Location = new System.Drawing.Point(123, 86);
+            this.scoreDiceImage2.Name = "scoreDiceImage2";
+            this.scoreDiceImage2.Size = new System.Drawing.Size(50, 50);
+            this.scoreDiceImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.scoreDiceImage2.TabIndex = 35;
+            this.scoreDiceImage2.TabStop = false;
+            // 
+            // scoreDiceImage1
+            // 
+            this.scoreDiceImage1.Image = global::RTIPPOGIT.Properties.Resources.Side_0;
+            this.scoreDiceImage1.Location = new System.Drawing.Point(67, 86);
+            this.scoreDiceImage1.Name = "scoreDiceImage1";
+            this.scoreDiceImage1.Size = new System.Drawing.Size(50, 50);
+            this.scoreDiceImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.scoreDiceImage1.TabIndex = 33;
+            this.scoreDiceImage1.TabStop = false;
+            // 
+            // diceImage3
+            // 
+            this.diceImage3.BackColor = System.Drawing.Color.BurlyWood;
+            this.diceImage3.Location = new System.Drawing.Point(179, 162);
+            this.diceImage3.Name = "diceImage3";
+            this.diceImage3.Size = new System.Drawing.Size(50, 50);
+            this.diceImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.diceImage3.TabIndex = 32;
+            this.diceImage3.TabStop = false;
+            // 
+            // diceImage2
+            // 
+            this.diceImage2.BackColor = System.Drawing.Color.BurlyWood;
+            this.diceImage2.Location = new System.Drawing.Point(123, 162);
+            this.diceImage2.Name = "diceImage2";
+            this.diceImage2.Size = new System.Drawing.Size(50, 50);
+            this.diceImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.diceImage2.TabIndex = 31;
+            this.diceImage2.TabStop = false;
+            // 
+            // diceImage1
+            // 
+            this.diceImage1.BackColor = System.Drawing.Color.BurlyWood;
+            this.diceImage1.Location = new System.Drawing.Point(67, 162);
+            this.diceImage1.Name = "diceImage1";
+            this.diceImage1.Size = new System.Drawing.Size(50, 50);
+            this.diceImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.diceImage1.TabIndex = 30;
+            this.diceImage1.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.BurlyWood;
+            this.pictureBox1.Location = new System.Drawing.Point(44, 142);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(214, 95);
+            this.pictureBox1.TabIndex = 41;
+            this.pictureBox1.TabStop = false;
+            // 
+            // answerTest
+            // 
+            this.answerTest.AutoSize = true;
+            this.answerTest.Location = new System.Drawing.Point(12, 45);
+            this.answerTest.Name = "answerTest";
+            this.answerTest.Size = new System.Drawing.Size(44, 16);
+            this.answerTest.TabIndex = 38;
+            this.answerTest.Text = "label1";
+            // 
+            // tableHeader
+            // 
+            this.tableHeader.AutoSize = true;
+            this.tableHeader.Location = new System.Drawing.Point(327, 9);
+            this.tableHeader.Name = "tableHeader";
+            this.tableHeader.Size = new System.Drawing.Size(127, 16);
+            this.tableHeader.TabIndex = 42;
+            this.tableHeader.Text = "Результаты ходов";
+            // 
             // Field
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(693, 372);
+            this.ClientSize = new System.Drawing.Size(654, 391);
+            this.Controls.Add(this.tableHeader);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.turnTable);
             this.Controls.Add(this.answerTest);
@@ -288,18 +313,20 @@
             this.Controls.Add(this.name);
             this.Controls.Add(this.playB);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "Field";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Игровая доска";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Field_FormClosing);
             this.Load += new System.EventHandler(this.Field_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.turnTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diceImage1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.turnTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,13 +348,15 @@
         private System.Windows.Forms.PictureBox scoreDiceImage2;
         private System.Windows.Forms.PictureBox scoreDiceImage3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label answerTest;
         private System.Windows.Forms.DataGridView turnTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn idT;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameT;
         private System.Windows.Forms.DataGridViewTextBoxColumn valuesT;
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreT;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label answerTest;
+        private System.Windows.Forms.Label tableHeader;
     }
 }
 
