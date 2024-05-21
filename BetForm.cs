@@ -30,7 +30,10 @@ namespace RTIPPOGIT
                 if (Convert.ToInt16(chipsCount.Text.Trim()) <= thisParty.PlayersList[playerID].Chips)
                 {
                     bet[playerID]= int.Parse(chipsCount.Text);
-                    if (playerID >= thisParty.PlayersList.Length-1) this.Close();
+                    if (playerID >= thisParty.PlayersList.Length - 1) {
+                        
+                        this.Close();
+                    }
                     else {
                         playerID++;
                         changeHeader();
@@ -51,18 +54,19 @@ namespace RTIPPOGIT
         private void changeHeader() {
             name.Text = thisParty.PlayersList[playerID].Name;
             chips.Text = "Баланс: " + thisParty.PlayersList[playerID].Chips.ToString();
-            chipsCount.Value = 1;
+            chipsCount.Value = chipsCount.Minimum;
             chipsCount.Maximum = thisParty.PlayersList[playerID].Chips;
         }
         private void BetForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //DialogResult exitResult = MessageBox.Show(
-            //    "Вы уверены, что хотите закончить ввод ставки?",
-            //    "Подтвердите выход",
-            //    MessageBoxButtons.YesNo,
-            //    MessageBoxIcon.Question,
-            //    MessageBoxDefaultButton.Button2);
-            //if (exitResult == DialogResult.No) e.Cancel = true;
+            DialogResult exitResult = MessageBox.Show(
+                "Вы уверены, что хотите закончить ввод ставки?",
+                "Подтвердите выход",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+            if (exitResult == DialogResult.No) e.Cancel = true;
+            if ((exitResult == DialogResult.Yes) && (bet[this.thisParty.PlayersList.Length - 1] != 0)) thisParty.startBet(bet);
         }
     }
 }

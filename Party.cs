@@ -16,13 +16,7 @@ namespace RTIPPOGIT
         public int Bank { get; private set; }
         public Player[] PlayersList { get; private set; }
         private Dice Dice = new Dice();
-        private int r = 1;
-        public async void WriteLog (string log){
-            using (StreamWriter writer = new StreamWriter("log.txt", true))
-            {
-                await writer.WriteLineAsync(log);
-            }
-        }
+
         public void StartGame()
         {
             CurrentPlayer = PlayersList[0];
@@ -35,14 +29,11 @@ namespace RTIPPOGIT
             values = Dice.playDices(diceAmount);
             currentTurn.placeValues(values);
         }
-        public void startBet()
+        public void startBet(int[] bet)
         {
-            BetForm bet = new BetForm(this);
-            bet.ShowDialog();
-            if (bet.bet[PlayersList.Length - 1] == 0) Environment.Exit(0);
             for (int i = 0; i < PlayersList.Length; i++) {
                 CurrentPlayer = PlayersList[i];
-                setChips(bet.bet[i]);
+                setChips(bet[i]);
             }
         }
         private void setChips(int chipsCount)
@@ -69,22 +60,13 @@ namespace RTIPPOGIT
         }
         public int ChangePlayer()
         {
-            int answer = 3;
+            int answerRound = 3;
             if (Array.IndexOf(PlayersList, CurrentPlayer) == PlayersList.Length - 1) {
-                answer = ChangeRound();
-                //Console.WriteLine(answer);
+                answerRound = ChangeRound();
             }
-            //if (answer == 0) 
-            //{
-            //    Console.WriteLine("Конец юзается");
-            //    return answer;
-            //} 
-
-            //nextPlayer();
-            int answer2 = nextPlayer();
-            if ((answer2 <3)) return answer2;
-            Console.WriteLine(answer + " " + CurrentPlayer.Name + " " + answer2);
-            return answer;
+            int answerPlayer = nextPlayer();
+            if ((answerPlayer < 3)) return answerPlayer;
+            return answerRound;
         }
         private int nextPlayer()
         {
@@ -109,7 +91,6 @@ namespace RTIPPOGIT
         }
         private int ChangeRound()
         {
-            r++;
             CurrentRound.UpdateWinners();
             string roundWinMes = CurrentRound.CreateRoundWinMes();
             MessageBox.Show(roundWinMes);
@@ -121,7 +102,7 @@ namespace RTIPPOGIT
                     int max = PlayersList.Max(i => i.Score);
                     foreach (Player player in PlayersList)
                     {
-                        if (player.Score == max) CurrentRound.WinnersList.Add(player); //провер
+                        if (player.Score == max) CurrentRound.WinnersList.Add(player);
                     }
 
                     string gameWinMes = CurrentRound.CreateGameWinMes();
@@ -147,63 +128,5 @@ namespace RTIPPOGIT
             }
             return 2;
         }
-        //private string endGame() {
-        //    CurrentRound.WinnersList.Clear();
-        //    int max = PlayersList.Max(i => i.Score);
-
-        //    //CurrentRound.TurnsList.Where(i => i.Player.Score == max).ToList().ForEach(i=> 
-        //    //{
-        //    //    i.ClearValues();
-        //    //    CurrentRound.WinnersList.Add(i.Player);
-        //    //});
-        //    PlayersList.Where(i => i.Score == max).ToList().ForEach(i => CurrentRound.WinnersList.Add(i));
-        //    if (CurrentRound.WinnersList.Count > 1) {
-        //        foreach (Turn turn in CurrentRound.TurnsList) { 
-        //            if (CurrentRound.WinnersList.Contains(turn.Player)) turn.ClearValues();
-        //        }
-        //    }
-
-        //    string gameWinMes = CurrentRound.CreateGameWinMes();
-
-        //    if (CurrentRound.WinnersList.Count > 1)
-        //    {
-        //        MessageBox.Show(gameWinMes);
-        //        return "Бонусный раунд";
-        //    }
-        //    else
-        //    {
-        //        gameWinMes += "\nБанк: " + Bank.ToString();
-        //        MessageBox.Show(gameWinMes);
-        //        CurrentRound.WinnersList[0].changeChips(Bank);
-        //        return "Конец";
-        //    }
-        //}
-        
     }
 }
-
-//CurrentRound.WinnersList.Clear();
-//int max = PlayersList.Max(i => i.Score);
-
-////CurrentRound.TurnsList.Where(i => i.Player.Score == max).ToList().ForEach(i=> 
-////{
-////    i.ClearValues();
-////    CurrentRound.WinnersList.Add(i.Player);
-////});
-//PlayersList.Where(i => i.Score == max).ToList().ForEach(i => CurrentRound.WinnersList.Add(i));
-//if (CurrentRound.WinnersList.Count > 1) foreach (Turn turn in CurrentRound.TurnsList) turn.ClearValues();
-
-//string gameWinMes = CurrentRound.CreateGameWinMes();
-
-//if (CurrentRound.WinnersList.Count > 1)
-//{
-//    MessageBox.Show(gameWinMes);
-//    return "Бонусный раунд";
-//}
-//else
-//{
-//    gameWinMes += "\nБанк: " + Bank.ToString();
-//    MessageBox.Show(gameWinMes);
-//    CurrentRound.WinnersList[0].changeChips(Bank);
-//    return "Конец";
-//}

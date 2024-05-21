@@ -38,14 +38,10 @@ namespace RTIPPOGIT
                 case 1:
                     RollValues[5] = values[0];
                     break;
-
             }
         }
         public void ClearTurnValues() {
             for (int i = 0; i < RollValues.Length; i++) RollValues[i] = 0;
-        }
-        public void Test() {
-            for (int i = 0; i < RollValues.Length; i++) RollValues[i] = 6;
         }
     }
 }

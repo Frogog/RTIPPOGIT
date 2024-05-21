@@ -21,9 +21,6 @@ namespace RTIPPOGIT
             {
                 TurnsList[i] = new Turn(playersList[i]);
             }
-            //this.Reroll = false;
-
-            //WinnersList.Select(i => i.Name == "Имя");
         }
         public bool MoreWinners()
         {
@@ -76,34 +73,5 @@ namespace RTIPPOGIT
                 if (WinnersList.Contains(turn.Player)) turn.ClearTurnValues();
             }
         }
-        public string ShowScore()
-        {
-            string playersScore = "";
-            foreach (Turn turn in TurnsList)
-            {
-                playersScore += turn.Player.Name + " Кости: " + turn.GetScoreMax() + " Счет:  " + turn.Player.Score + "\n";
-            }
-            return playersScore;
-        }
     }
 }
-//if (!Reroll)
-//{
-//    int max = TurnsList.Max(i => i.GetScoreMax());
-//    foreach (Turn turn in TurnsList) if (turn.GetScoreMax() == max) {
-//            WinnersList.Add(turn.Player);
-//            //turn.ClearValues();
-//    }
-//    if (WinnersList.Count > 1) {
-//        foreach (Turn turn in TurnsList) { 
-//            if (WinnersList.Contains(turn.Player)) turn.ClearValues();
-//        }
-//    }
-//}
-//else
-//{
-//    int max = TurnsList.Where(i => WinnersList.Contains(i.Player)).Max(i => i.GetScoreMax());
-//    foreach (Turn turn in TurnsList) if (turn.GetScoreMax() != max) WinnersList.Remove(turn.Player);
-//}
-//Reroll = WinnersList.Count > 1;
-//if (WinnersList.Count == 1) WinnersList[0].UpScore();

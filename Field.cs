@@ -43,14 +43,19 @@ namespace RTIPPOGIT
             if ((thisParty.PlayersList == null) || (thisParty.RoundsList == null)) {
                 MessageBox.Show("Настройка игры не завершена\nБудет произведен выход из игры","Выход из игры");
                 Environment.Exit(0);
+            }
+            BetForm bet = new BetForm(thisParty);
+            bet.ShowDialog();
+            if (bet.bet[this.thisParty.PlayersList.Length - 1] == 0) {
+                MessageBox.Show("Игрок отказался делать ставку\nБудет произведен выход из игры", "Выход из игры");
+                Environment.Exit(0);
             } 
-            //thisParty.startBet();
             thisParty.StartGame();
             name.Text = thisParty.CurrentPlayer.Name;
             bank.Text = "Банк: " + thisParty.Bank.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void playB_Click(object sender, EventArgs e)
         {
             Turn currentTurn = thisParty.CurrentRound.TurnsList.FirstOrDefault(i => i.Player.id == thisParty.CurrentPlayer.id);
             thisParty.throwDice(diceToThrow);
@@ -81,17 +86,11 @@ namespace RTIPPOGIT
                     break;
                 case 0:
                     int answer2 = thisParty.ChangePlayer();
-                    //Console.WriteLine(answer2);
-                    answerTest.Text = message[answer2];
-                    if (message[answer2] == "Бонусный раунд") {
+                    if (message[answer2] == "Бонусный раунд")
+                    {
                         round.Text = message[answer2];
-                    } 
+                    }
                     if (round.Text != "Бонусный раунд") round.Text = "Раунд: " + (Array.IndexOf(thisParty.RoundsList, thisParty.CurrentRound) + 1).ToString();
-                    //if ((message[answer2] == "Смена раунда") || (message[answer2] == "Бонусный раунд")) {
-                    //    //if (thisParty.CurrentRound.Reroll != true) 
-                    //    turnTable.Rows.Clear();
-                    //    UpdateTurnTable();
-                    //} 
                     if (message[answer2] == "Конец")
                     {
                         this.Hide();
@@ -112,21 +111,11 @@ namespace RTIPPOGIT
                     diceImage3.Visible = false;
                     break;
             }
-            if (scoreLabel.Visible==false) scoreLabel.Visible = true;
-            //if (diceToThrow!=4) 
             UpdateTurnTable();
             scoreLabel.Text = diceToThrow != 4 ? "Счет " + currentTurn.GetScoreMax() : "Счет 0";
             diceToThrow--;
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            string str = "Кости игроков\n";
-            str += thisParty.CurrentRound.ShowScore();
-            MessageBox.Show(str);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void statB_Click(object sender, EventArgs e)
         {
             new Statistic(thisParty, "Промежуточная статистика", this).ShowDialog();
         }
@@ -159,19 +148,6 @@ namespace RTIPPOGIT
                 }
             }
           
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            thisParty.CurrentRound.TurnsList[0].Test();
-            thisParty.CurrentRound.TurnsList[1].Test();
-            thisParty.CurrentRound.TurnsList[2].Test();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            thisParty.PlayersList[0].Score = 5;
-            thisParty.PlayersList[2].Score = 5;
-            thisParty.PlayersList[4].Score = 5;
-        }
+        }       
     }
 }

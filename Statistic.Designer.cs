@@ -52,9 +52,10 @@
             this.table.Location = new System.Drawing.Point(12, 37);
             this.table.Name = "table";
             this.table.ReadOnly = true;
+            this.table.RowHeadersVisible = false;
             this.table.RowHeadersWidth = 51;
             this.table.RowTemplate.Height = 24;
-            this.table.Size = new System.Drawing.Size(464, 365);
+            this.table.Size = new System.Drawing.Size(393, 365);
             this.table.TabIndex = 2;
             // 
             // name
@@ -101,27 +102,29 @@
             // winnerLabel
             // 
             this.winnerLabel.AutoSize = true;
-            this.winnerLabel.Location = new System.Drawing.Point(260, 9);
+            this.winnerLabel.Location = new System.Drawing.Point(189, 9);
             this.winnerLabel.Name = "winnerLabel";
             this.winnerLabel.Size = new System.Drawing.Size(142, 16);
             this.winnerLabel.TabIndex = 4;
             this.winnerLabel.Text = "Победитель: Игрок 1";
+            this.winnerLabel.Visible = false;
             // 
             // bankLabel
             // 
             this.bankLabel.AutoSize = true;
-            this.bankLabel.Location = new System.Drawing.Point(410, 9);
+            this.bankLabel.Location = new System.Drawing.Point(339, 9);
             this.bankLabel.Name = "bankLabel";
             this.bankLabel.Size = new System.Drawing.Size(66, 16);
             this.bankLabel.TabIndex = 5;
             this.bankLabel.Text = "Банк: 230";
+            this.bankLabel.Visible = false;
             // 
             // Statistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(489, 414);
+            this.ClientSize = new System.Drawing.Size(420, 414);
             this.Controls.Add(this.bankLabel);
             this.Controls.Add(this.winnerLabel);
             this.Controls.Add(this.tableHeader);

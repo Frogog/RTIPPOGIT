@@ -26,14 +26,11 @@ namespace RTIPPOGIT
 
         private void Statistic_Load(object sender, EventArgs e)
         {
-            if (endStat != "Конец") { 
-                winnerLabel.Visible = false;
-                winnerLabel.Visible = false;
-            }
-            else
-            {
+            if (endStat == "Конец") { 
+                winnerLabel.Visible = true;
+                bankLabel.Visible = true;
                 winnerLabel.Text = "Победитель: " + thisParty.RoundsList[thisParty.RoundsList.Length - 1].WinnersList[0].Name;
-                bankLabel.Text = "Банк: " + thisParty.Bank ;
+                bankLabel.Text = "Банк: " + thisParty.Bank;
             }
             foreach (Player player in thisParty.PlayersList)
             {

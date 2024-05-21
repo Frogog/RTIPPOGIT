@@ -28,20 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button5 = new System.Windows.Forms.Button();
+            this.statB = new System.Windows.Forms.Button();
             this.bank = new System.Windows.Forms.Label();
             this.round = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
             this.playB = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.scoreLabel = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.turnTable = new System.Windows.Forms.DataGridView();
             this.idT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valuesT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scoreT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.scoreDiceImage3 = new System.Windows.Forms.PictureBox();
             this.scoreDiceImage2 = new System.Windows.Forms.PictureBox();
             this.scoreDiceImage1 = new System.Windows.Forms.PictureBox();
@@ -49,7 +46,6 @@
             this.diceImage2 = new System.Windows.Forms.PictureBox();
             this.diceImage1 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.answerTest = new System.Windows.Forms.Label();
             this.tableHeader = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.turnTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scoreDiceImage3)).BeginInit();
@@ -61,24 +57,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button5
+            // statB
             // 
-            this.button5.Location = new System.Drawing.Point(154, 295);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(104, 37);
-            this.button5.TabIndex = 29;
-            this.button5.Text = "Статистика";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.statB.Location = new System.Drawing.Point(44, 295);
+            this.statB.Name = "statB";
+            this.statB.Size = new System.Drawing.Size(214, 37);
+            this.statB.TabIndex = 29;
+            this.statB.Text = "Статистика";
+            this.statB.UseVisualStyleBackColor = true;
+            this.statB.Click += new System.EventHandler(this.statB_Click);
             // 
             // bank
             // 
             this.bank.AutoSize = true;
             this.bank.Location = new System.Drawing.Point(239, 9);
             this.bank.Name = "bank";
-            this.bank.Size = new System.Drawing.Size(39, 16);
+            this.bank.Size = new System.Drawing.Size(52, 16);
             this.bank.TabIndex = 24;
-            this.bank.Text = "Банк";
+            this.bank.Text = "Банк: 1";
             // 
             // round
             // 
@@ -106,17 +102,7 @@
             this.playB.TabIndex = 19;
             this.playB.Text = "Разыграть";
             this.playB.UseVisualStyleBackColor = true;
-            this.playB.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(44, 295);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 37);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Счет раунда";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.playB.Click += new System.EventHandler(this.playB_Click);
             // 
             // scoreLabel
             // 
@@ -126,16 +112,6 @@
             this.scoreLabel.Size = new System.Drawing.Size(49, 16);
             this.scoreLabel.TabIndex = 34;
             this.scoreLabel.Text = "Счет 0";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(154, 337);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 32);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "тест";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // turnTable
             // 
@@ -150,9 +126,10 @@
             this.turnTable.Location = new System.Drawing.Point(327, 28);
             this.turnTable.Name = "turnTable";
             this.turnTable.ReadOnly = true;
+            this.turnTable.RowHeadersVisible = false;
             this.turnTable.RowHeadersWidth = 51;
             this.turnTable.RowTemplate.Height = 24;
-            this.turnTable.Size = new System.Drawing.Size(315, 304);
+            this.turnTable.Size = new System.Drawing.Size(256, 304);
             this.turnTable.TabIndex = 39;
             // 
             // idT
@@ -163,7 +140,7 @@
             this.idT.Name = "idT";
             this.idT.ReadOnly = true;
             this.idT.Visible = false;
-            this.idT.Width = 49;
+            this.idT.Width = 125;
             // 
             // nameT
             // 
@@ -191,16 +168,6 @@
             this.scoreT.Name = "scoreT";
             this.scoreT.ReadOnly = true;
             this.scoreT.Width = 68;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(44, 337);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 32);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // scoreDiceImage3
             // 
@@ -271,15 +238,6 @@
             this.pictureBox1.TabIndex = 41;
             this.pictureBox1.TabStop = false;
             // 
-            // answerTest
-            // 
-            this.answerTest.AutoSize = true;
-            this.answerTest.Location = new System.Drawing.Point(12, 45);
-            this.answerTest.Name = "answerTest";
-            this.answerTest.Size = new System.Drawing.Size(44, 16);
-            this.answerTest.TabIndex = 38;
-            this.answerTest.Text = "label1";
-            // 
             // tableHeader
             // 
             this.tableHeader.AutoSize = true;
@@ -294,12 +252,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(654, 391);
+            this.ClientSize = new System.Drawing.Size(595, 341);
             this.Controls.Add(this.tableHeader);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.turnTable);
-            this.Controls.Add(this.answerTest);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.scoreDiceImage3);
             this.Controls.Add(this.scoreDiceImage2);
             this.Controls.Add(this.scoreLabel);
@@ -307,13 +262,14 @@
             this.Controls.Add(this.diceImage3);
             this.Controls.Add(this.diceImage2);
             this.Controls.Add(this.diceImage1);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.statB);
             this.Controls.Add(this.bank);
             this.Controls.Add(this.round);
             this.Controls.Add(this.name);
             this.Controls.Add(this.playB);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Field";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Игровая доска";
@@ -337,25 +293,21 @@
         private System.Windows.Forms.PictureBox diceImage3;
         private System.Windows.Forms.PictureBox diceImage2;
         private System.Windows.Forms.PictureBox diceImage1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button statB;
         private System.Windows.Forms.Label bank;
         private System.Windows.Forms.Label round;
         private System.Windows.Forms.Label name;
         private System.Windows.Forms.Button playB;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox scoreDiceImage1;
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.PictureBox scoreDiceImage2;
         private System.Windows.Forms.PictureBox scoreDiceImage3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView turnTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn idT;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameT;
         private System.Windows.Forms.DataGridViewTextBoxColumn valuesT;
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreT;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label answerTest;
         private System.Windows.Forms.Label tableHeader;
     }
 }

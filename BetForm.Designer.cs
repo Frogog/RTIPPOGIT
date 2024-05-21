@@ -41,9 +41,9 @@
             this.chips.AutoSize = true;
             this.chips.Location = new System.Drawing.Point(130, 12);
             this.chips.Name = "chips";
-            this.chips.Size = new System.Drawing.Size(53, 16);
+            this.chips.Size = new System.Drawing.Size(58, 16);
             this.chips.TabIndex = 10;
-            this.chips.Text = "Фишки:";
+            this.chips.Text = "Баланс:";
             // 
             // betButton
             // 
@@ -101,6 +101,8 @@
             this.Controls.Add(this.chipsCount);
             this.Controls.Add(this.chipsCountL);
             this.Controls.Add(this.name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "BetForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ввод ставки";
