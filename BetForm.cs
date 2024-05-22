@@ -66,7 +66,7 @@ namespace RTIPPOGIT
                 MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button2);
             if (exitResult == DialogResult.No) e.Cancel = true;
-            if ((exitResult == DialogResult.Yes) && (bet[this.thisParty.PlayersList.Length - 1] != 0)) thisParty.startBet(bet);
+            if ((exitResult == DialogResult.Yes) && (bet[this.thisParty.PlayersList.Length - 1] != 0)) thisParty.StartBet(bet);
         }
     }
 }

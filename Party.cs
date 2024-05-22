@@ -29,7 +29,7 @@ namespace RTIPPOGIT
             values = Dice.playDices(diceAmount);
             currentTurn.placeValues(values);
         }
-        public void startBet(int[] bet)
+        public void StartBet(int[] bet)
         {
             for (int i = 0; i < PlayersList.Length; i++) {
                 CurrentPlayer = PlayersList[i];
@@ -58,11 +58,11 @@ namespace RTIPPOGIT
                 RoundsList[i] = new Round(PlayersList);
             }
         }
-        public int ChangePlayer()
+        public int changePlayer()
         {
             int answerRound = 3;
             if (Array.IndexOf(PlayersList, CurrentPlayer) == PlayersList.Length - 1) {
-                answerRound = ChangeRound();
+                answerRound = changeRound();
             }
             int answerPlayer = nextPlayer();
             if ((answerPlayer < 3)) return answerPlayer;
@@ -80,7 +80,7 @@ namespace RTIPPOGIT
                 int answer;
                 if (Array.IndexOf(PlayersList, CurrentPlayer) == PlayersList.Length - 1)
                 {
-                    answer = ChangeRound();
+                    answer = changeRound();
                     nextPlayer();
                     return answer;
                 }
@@ -89,7 +89,7 @@ namespace RTIPPOGIT
             }
             return 3;
         }
-        private int ChangeRound()
+        private int changeRound()
         {
             CurrentRound.UpdateWinners();
             string roundWinMes = CurrentRound.CreateRoundWinMes();
@@ -109,7 +109,7 @@ namespace RTIPPOGIT
 
                     if (CurrentRound.WinnersList.Count > 1)
                     {
-                        CurrentRound.clearRoundValues();
+                        CurrentRound.ClearRoundValues();
                         MessageBox.Show(gameWinMes);
                         return 1;
                     }

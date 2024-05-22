@@ -85,7 +85,7 @@ namespace RTIPPOGIT
                     diceImage2.Visible = false;
                     break;
                 case 0:
-                    int answer2 = thisParty.ChangePlayer();
+                    int answer2 = thisParty.changePlayer();
                     if (message[answer2] == "Бонусный раунд")
                     {
                         round.Text = message[answer2];

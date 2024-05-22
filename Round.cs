@@ -39,7 +39,7 @@ namespace RTIPPOGIT
                 int max = TurnsList.Where(i => WinnersList.Contains(i.Player)).Max(i => i.GetScoreMax());
                 foreach (Turn turn in TurnsList) if (turn.GetScoreMax() != max) WinnersList.Remove(turn.Player);
             }
-            clearRoundValues();
+            ClearRoundValues();
             Reroll = WinnersList.Count > 1;
             if (WinnersList.Count == 1) WinnersList[0].UpScore();
            
@@ -68,7 +68,7 @@ namespace RTIPPOGIT
             else gameWinMes = "Победитель игры: " + WinnersList[0].Name;
             return gameWinMes;
         }
-        public void clearRoundValues() {
+        public void ClearRoundValues() {
             foreach (Turn turn in TurnsList) {
                 if (WinnersList.Contains(turn.Player)) turn.ClearTurnValues();
             }
