@@ -102,7 +102,7 @@
             // winnerLabel
             // 
             this.winnerLabel.AutoSize = true;
-            this.winnerLabel.Location = new System.Drawing.Point(189, 9);
+            this.winnerLabel.Location = new System.Drawing.Point(180, 9);
             this.winnerLabel.Name = "winnerLabel";
             this.winnerLabel.Size = new System.Drawing.Size(142, 16);
             this.winnerLabel.TabIndex = 4;
