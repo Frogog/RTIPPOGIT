@@ -111,7 +111,7 @@ namespace RTIPPOGIT
                     diceImage3.Visible = false;
                     break;
             }
-            UpdateTurnTable();
+            if (this.Visible != false) UpdateTurnTable();
             scoreLabel.Text = diceToThrow != 4 ? "Счет " + currentTurn.GetScoreMax() : "Счет 0";
             diceToThrow--;
         }
@@ -136,18 +136,34 @@ namespace RTIPPOGIT
         private void UpdateTurnTable()
         {
             turnTable.Rows.Clear();
-            foreach (Turn turn in thisParty.CurrentRound.TurnsList) {
+            foreach (Turn turn in thisParty.CurrentRound.TurnsList)
+            {
                 if (!thisParty.CurrentRound.Reroll)
                 {
-                    turnTable.Rows.Add(turn.Player.id.ToString(), turn.Player.Name, turn.RollValues[0] + ", " + turn.RollValues[1] + ", " + turn.RollValues[2] + ", " + turn.RollValues[3] + ", " + turn.RollValues[4] + ", " + turn.RollValues[5], turn.GetScoreMax());
+                    turnTable.Rows.Add(
+                        turn.Player.id.ToString(),
+                        turn.Player.Name,
+                        diceSides[Math.Max(Math.Max(turn.RollValues[0], turn.RollValues[1]), turn.RollValues[2])],
+                        diceSides[Math.Max(turn.RollValues[3], turn.RollValues[4])],
+                        diceSides[turn.RollValues[5]],
+                        turn.GetScoreMax());
                 }
-                else {
-                    if (thisParty.CurrentRound.WinnersList.Contains(turn.Player)) {
-                        turnTable.Rows.Add(turn.Player.id.ToString(), turn.Player.Name, turn.RollValues[0] + ", " + turn.RollValues[1] + ", " + turn.RollValues[2] + ", " + turn.RollValues[3] + ", " + turn.RollValues[4] + ", " + turn.RollValues[5], turn.GetScoreMax());
+                else
+                {
+                    if (thisParty.CurrentRound.WinnersList.Contains(turn.Player))
+                    {
+                        turnTable.Rows.Add(
+                            turn.Player.id.ToString(),
+                            turn.Player.Name,
+                            diceSides[Math.Max(Math.Max(turn.RollValues[0], turn.RollValues[1]), turn.RollValues[2])],
+                            diceSides[Math.Max(turn.RollValues[3], turn.RollValues[4])],
+                            diceSides[turn.RollValues[5]],
+                            turn.GetScoreMax());
                     }
                 }
             }
-          
-        }       
+            turnTable.ClearSelection();
+
+        }
     }
 }
